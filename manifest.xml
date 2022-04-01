@@ -1,19 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="flaskrequest-a9c664" installOnlyAtStartup="false" version="0.0.0">
+<package version="0.0.0" uuid="flaskrequest-a9c664" installOnlyAtStartup="false">
  <names>
-  <name lang="en_US">Untitled</name>
+  <name lang="en_US">flaskRequest</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>
+  <language>it_IT</language>
  </supportedLanguages>
  <descriptionLanguages>
   <language>en_US</language>
+  <language>it_IT</language>
  </descriptionLanguages>
  <contents>
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
  </contents>
