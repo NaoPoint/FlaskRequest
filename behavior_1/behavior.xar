@@ -80,7 +80,7 @@ class MyClass(GeneratedClass):
               <Output name="onError" type="3" type_size="1" nature="2" inner="0" tooltip="Error output:&#x0A;- triggered if the language asked cannot be set" id="4" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Set Reco. Lang." id="3" localization="8" tooltip="Select the language you would like the robot to recognize. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) will use this language.&#x0A;&#x0A;V1.1.0" plugin="setlanguage_plugin" x="447" y="451">
+            <Box name="Set Reco. Lang." id="3" localization="8" tooltip="Select the language you would like the robot to recognize. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) will use this language.&#x0A;&#x0A;V1.1.0" plugin="setlanguage_plugin" x="432" y="456">
               <bitmap>media/images/box/interaction/reco_voice.png</bitmap>
               <script language="4">
                 <content>
@@ -245,9 +245,9 @@ class MyClass(GeneratedClass):
         #put clean-up code here
         pass
 
-    def onInput_onStart(self):
+    def onInput_onStart(self, point):
         #self.onStopped() #activate the output of the box
-        self.output("3")
+        self.output(point)
         pass
 
     def onInput_onStop(self):
@@ -256,32 +256,42 @@ class MyClass(GeneratedClass):
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Input name="onStart" type="3" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="output" type="3" type_size="1" nature="2" inner="0" tooltip="" id="4" />
             </Box>
-            <Box name="flaskRequest" id="1" localization="8" tooltip="Send request to Flask to update JavaScript map and display the requested point." x="588" y="173">
+            <Box name="flaskRequest" id="1" localization="8" tooltip="Send request to Flask to update JavaScript map and display the requested point." x="647" y="176">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[class MyClass(GeneratedClass):
+                  <![CDATA[import subprocess
+
+class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
 
     def onInput_mapPoint(self, input):
         #convert input string from speech recognition to number
-        try:
-            int(input)    #check if integer
-            self.point = input == '0' if '' else input    #maintain string
+        firstInteger = re.search(r"\d", input)    #get first integer in string
 
+        if firstInteger:
+            self.point = input[firstInteger.start()] == '0' if '' else input[firstInteger.start()]    #maintain string
             self.callFlask()
 
-        except ValueError:    #invalid input
+        else:    #invalid input
             self.onInvalid()
 
     def callFlask(self):
-        command = "python -u S:\\Git\\NaoPoint\\TvScreen\\flaskRequest.py " + self.point
-        os.system(command)
+        filePath = self.behaviorAbsolutePath() + self.getParameter("flaskRequest")    #get complete path to file
+        cmd = "python3 -u " + filePath + " " + self.point    #command for local shell
+        #cmd = "pip install requests"
+
+        try:
+            self.logger.warning(cmd)
+            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+
+        except subprocess.CalledProcessError as error:
+            self.logger.warning("error: {}".format(error.output))
 
         self.onValid(self.point)
 
@@ -302,8 +312,9 @@ class MyClass(GeneratedClass):
               <Input name="mapPoint" type="3" type_size="1" nature="1" inner="0" tooltip="" id="3" />
               <Output name="onValid" type="2" type_size="1" nature="2" inner="0" tooltip="" id="4" />
               <Output name="onInvalid" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
+              <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="6" />
             </Box>
-            <Box name="Animated Say" id="6" localization="8" tooltip="Say some text with animations. The text can be localized." x="919" y="176">
+            <Box name="Animated Say" id="6" localization="8" tooltip="Say some text with animations. The text can be localized." x="1336" y="236">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -375,7 +386,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Animation" inherits_from_parent="0" content_type="3" value="Stand/Gestures/Hey_2" default_value="" custom_choice="0" tooltip="The animation to play" id="10" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Delay" id="14" localization="8" tooltip="Wait a moment before triggering the output. &#x0A;Can be stopped anytime. &#x0A;Multiple inputs will trigger multiple outputs." x="759" y="23">
+            <Box name="Delay" id="14" localization="8" tooltip="Wait a moment before triggering the output. &#x0A;Can be stopped anytime. &#x0A;Multiple inputs will trigger multiple outputs." x="941" y="55">
               <bitmap>media/images/box/wait.png</bitmap>
               <script language="4">
                 <content>
@@ -425,11 +436,12 @@ class MyClass(GeneratedClass):
             </Box>
             <Link inputowner="4" indexofinput="2" outputowner="3" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="4" />
-            <Link inputowner="5" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="3" indexofinput="2" outputowner="2" indexofoutput="3" />
             <Link inputowner="14" indexofinput="2" outputowner="1" indexofoutput="4" />
             <Link inputowner="6" indexofinput="2" outputowner="14" indexofoutput="4" />
             <Link inputowner="6" indexofinput="4" outputowner="1" indexofoutput="4" />
+            <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
+            <Link inputowner="5" indexofinput="2" outputowner="4" indexofoutput="5" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
