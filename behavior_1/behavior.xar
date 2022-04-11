@@ -264,7 +264,12 @@ class MyClass(GeneratedClass):
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[import subprocess
+                  <![CDATA[import re
+import json
+from random import randrange
+
+from urllib import urlencode
+import urllib2
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -275,25 +280,30 @@ class MyClass(GeneratedClass):
         firstInteger = re.search(r"\d", input)    #get first integer in string
 
         if firstInteger:
-            self.point = input[firstInteger.start()] == '0' if '' else input[firstInteger.start()]    #maintain string
-            self.callFlask()
+            self.point = input[firstInteger.start()] if input[firstInteger.start()] != '0' else str(randrange(1, self.getParameter("maxPoint")))    #either a random number (if 0) or the input number
+            self.updateMap()
 
         else:    #invalid input
             self.onInvalid()
 
-    def callFlask(self):
-        filePath = self.behaviorAbsolutePath() + self.getParameter("flaskRequest")    #get complete path to file
-        cmd = "python3 -u " + filePath + " " + self.point    #command for local shell
-        #cmd = "pip install requests"
+    def updateMap(self):
+        json.loads(self.point)    #convert to json
 
         try:
-            self.logger.warning(cmd)
-            output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT)
+            res = requests.post('http://127.0.0.1:5000/update', json=self.point)    #flask endpoint
+            output = res.json()    #success
+            self.onValid(self.point)
 
-        except subprocess.CalledProcessError as error:
-            self.logger.warning("error: {}".format(error.output))
+        except requests.ConnectionError as e:
+            output = e    #connection refused / aborted
+            self.onError()
 
-        self.onValid(self.point)
+        except Exception as e:
+            output = "Unknown error"    #unexpected
+            self.onError()
+
+        finally:
+            self.logger.info(output)    #print result (success or error)
 
     def onLoad(self):
         #put initialization code here
@@ -312,7 +322,9 @@ class MyClass(GeneratedClass):
               <Input name="mapPoint" type="3" type_size="1" nature="1" inner="0" tooltip="" id="3" />
               <Output name="onValid" type="2" type_size="1" nature="2" inner="0" tooltip="" id="4" />
               <Output name="onInvalid" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
-              <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="6" />
+              <Output name="onError" type="1" type_size="1" nature="2" inner="0" tooltip="" id="6" />
+              <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="7" />
+              <Parameter name="maxPoint" inherits_from_parent="0" content_type="1" value="9" default_value="9" min="1" max="200" tooltip="" id="8" />
             </Box>
             <Box name="Animated Say" id="6" localization="8" tooltip="Say some text with animations. The text can be localized." x="1336" y="236">
               <bitmap>media/images/box/interaction/say.png</bitmap>
@@ -386,7 +398,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Animation" inherits_from_parent="0" content_type="3" value="Stand/Gestures/Hey_2" default_value="" custom_choice="0" tooltip="The animation to play" id="10" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Delay" id="14" localization="8" tooltip="Wait a moment before triggering the output. &#x0A;Can be stopped anytime. &#x0A;Multiple inputs will trigger multiple outputs." x="941" y="55">
+            <Box name="Delay" id="14" localization="8" tooltip="Wait a moment before triggering the output. &#x0A;Can be stopped anytime. &#x0A;Multiple inputs will trigger multiple outputs." x="1059" y="56">
               <bitmap>media/images/box/wait.png</bitmap>
               <script language="4">
                 <content>
@@ -434,12 +446,35 @@ class MyClass(GeneratedClass):
               <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
               <Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="If the box is currently delaying at least one signal and cancelled, output will be stimulated." id="6" />
             </Box>
+            <Box name="Text Edit" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="112" y="59">
+              <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
+	def __init__(self):
+		GeneratedClass.__init__(self)
+
+	def onInput_onStart(self):
+		self.onStopped("3")]]>
+                </content>
+              </script>
+              <pluginContent>
+                <text>
+                  <![CDATA[3]]>
+                </text>
+              </pluginContent>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="1" inner="0" tooltip="To send the text on the output." id="2" />
+              <Output name="onStopped" type="3" type_size="1" nature="2" inner="0" tooltip="The text you entered." id="3" />
+            </Box>
             <Link inputowner="4" indexofinput="2" outputowner="3" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="4" />
             <Link inputowner="3" indexofinput="2" outputowner="2" indexofoutput="3" />
             <Link inputowner="14" indexofinput="2" outputowner="1" indexofoutput="4" />
             <Link inputowner="6" indexofinput="2" outputowner="14" indexofoutput="4" />
             <Link inputowner="6" indexofinput="4" outputowner="1" indexofoutput="4" />
+            <Link inputowner="5" indexofinput="2" outputowner="7" indexofoutput="3" />
             <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="5" indexofinput="2" outputowner="4" indexofoutput="5" />
           </Diagram>

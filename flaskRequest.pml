@@ -8,7 +8,6 @@
         <Dialog name="ExampleDialog" src="behavior_1/ExampleDialog/ExampleDialog.dlg" />
     </Dialogs>
     <Resources>
-        <File name="flaskRequest" src="behavior_1/flaskRequest.py" />
         <File name="__init__" src="requests/__init__.py" />
         <File name="__version__" src="requests/__version__.py" />
         <File name="_internal_utils" src="requests/_internal_utils.py" />
