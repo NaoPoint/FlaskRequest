@@ -264,12 +264,10 @@ class MyClass(GeneratedClass):
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
-                  <![CDATA[import re
+                  <![CDATA[import requests
+import re
 import json
 from random import randrange
-
-from urllib import urlencode
-import urllib2
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -288,18 +286,20 @@ class MyClass(GeneratedClass):
 
     def updateMap(self):
         json.loads(self.point)    #convert to json
+        output = None
 
         try:
-            res = requests.post('http://127.0.0.1:5000/update', json=self.point)    #flask endpoint
-            output = res.json()    #success
+            output = requests.post('http://192.168.94.59:5000/update', json=self.point)    #flask endpoint
+
+            output = output.json()    #success
             self.onValid(self.point)
 
         except requests.ConnectionError as e:
-            output = e    #connection refused / aborted
+            output = "Connection error: " + str(e)    #connection refused / aborted
             self.onError()
 
         except Exception as e:
-            output = "Unknown error"    #unexpected
+            output = "Unknown error: " + str(sys.exc_info()[0])    #unexpected
             self.onError()
 
         finally:

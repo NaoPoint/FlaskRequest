@@ -9,7 +9,7 @@
             <translation type="vanished">Hello</translation>
         </message>
         <message>
-            <location filename="C:/../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../Program Files (x86)/Softbank Robotics/Choregraphe Suite 2.8/translations/behavior_1/behavior.xar" line="0"/>
+            <location filename="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../Program Files (x86)/Softbank Robotics/Choregraphe Suite 2.8/translations/behavior_1/behavior.xar" line="0"/>
             <source></source>
             <comment>Text</comment>
             <translation></translation>
