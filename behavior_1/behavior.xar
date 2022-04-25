@@ -81,7 +81,7 @@ class MyClass(GeneratedClass):
               <Output name="onReady" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the data has been set." id="3" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="flaskRequest" id="1" localization="8" tooltip="Send request to Flask to update JavaScript map and display the requested point." x="555" y="137">
+            <Box name="flaskRequest" id="1" localization="8" tooltip="Send request to Flask to update JavaScript map and display the requested point." x="685" y="167">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -99,13 +99,18 @@ class MyClass(GeneratedClass):
         firstInteger = re.search(r"\d", input)    #get first integer in string
 
         if firstInteger:
-            self.point = input[firstInteger.start()] if input[firstInteger.start()] != '0' else str(randrange(1, self.getParameter("maxPoint")))    #either a random number (if 0) or the input number
+            self.point = int(input[firstInteger.start()]) if input[firstInteger.start()] != '0' else randrange(1, self.getParameter("maxPoint"))    #either a random number (if 0) or the input number
+
+            if hasattr(self, "number"):
+                self.point = self.point + self.number    #exclude first additional points (e.g. stairs)
+
             self.updateMap()
 
         else:    #invalid input
             self.onInvalid()
 
     def updateMap(self):
+        self.point = str(self.point)    #cannot convert before: addition
         json.loads(self.point)    #convert to json
         output = None
 
@@ -130,6 +135,9 @@ class MyClass(GeneratedClass):
         finally:
             self.logger.info(output)    #print result (success or error)
 
+    def onInput_addNumber(self, number):
+        self.number = number
+
     def onLoad(self):
         #put initialization code here
         pass
@@ -145,15 +153,16 @@ class MyClass(GeneratedClass):
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
               <Input name="mapPoint" type="3" type_size="1" nature="1" inner="0" tooltip="" id="3" />
-              <Output name="onInvalid" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
-              <Output name="onError" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
-              <Output name="horizontal" type="2" type_size="1" nature="2" inner="0" tooltip="" id="6" />
-              <Output name="vertical" type="2" type_size="1" nature="2" inner="0" tooltip="" id="7" />
-              <Output name="calledPoint" type="2" type_size="1" nature="2" inner="0" tooltip="" id="8" />
-              <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="9" />
-              <Parameter name="maxPoint" inherits_from_parent="0" content_type="1" value="9" default_value="9" min="1" max="200" tooltip="" id="10" />
+              <Input name="addNumber" type="2" type_size="1" nature="1" inner="0" tooltip="" id="4" />
+              <Output name="onInvalid" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
+              <Output name="onError" type="1" type_size="1" nature="2" inner="0" tooltip="" id="6" />
+              <Output name="horizontal" type="2" type_size="1" nature="2" inner="0" tooltip="" id="7" />
+              <Output name="vertical" type="2" type_size="1" nature="2" inner="0" tooltip="" id="8" />
+              <Output name="calledPoint" type="2" type_size="1" nature="2" inner="0" tooltip="" id="9" />
+              <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="10" />
+              <Parameter name="maxPoint" inherits_from_parent="0" content_type="1" value="9" default_value="9" min="1" max="200" tooltip="" id="11" />
             </Box>
-            <Box name="Text Edit" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="111" y="279">
+            <Box name="Test Number" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="86" y="292">
               <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
               <script language="4">
                 <content>
@@ -175,7 +184,7 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="1" type_size="1" nature="1" inner="0" tooltip="To send the text on the output." id="2" />
               <Output name="onStopped" type="3" type_size="1" nature="2" inner="0" tooltip="The text you entered." id="3" />
             </Box>
-            <Box name="Say Text" id="8" localization="8" tooltip="Say the text received on its input." x="1116" y="96">
+            <Box name="Say Text" id="8" localization="8" tooltip="Say the text received on its input." x="689" y="17">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -231,7 +240,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="346" y="69">
+            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="339" y="85">
               <dialogFile>../Museo/Museo.dlg</dialogFile>
               <bitmap>media/images/box/box-dialog.png</bitmap>
               <script language="4">
@@ -251,7 +260,7 @@ class MyClass(GeneratedClass):
               <Resource name="Speech" type="Lock" timeout="0" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Set Language" id="9" localization="8" tooltip="Select the language you would like the robot to speak and understand. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) or ALTextToSpeech (Say box&#x0A;for instance) will use this language." x="165" y="124">
+            <Box name="Set Language" id="9" localization="8" tooltip="Select the language you would like the robot to speak and understand. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) or ALTextToSpeech (Say box&#x0A;for instance) will use this language." x="140" y="147">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -300,7 +309,7 @@ class MyClass(GeneratedClass):
               <Input name="onSet" type="1" type_size="1" nature="1" inner="0" tooltip="The data is set when a signal is received on this input." id="2" />
               <Output name="onReady" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the data has been set." id="3" />
               <Output name="onError" type="3" type_size="1" nature="2" inner="0" tooltip="Error output:&#x0A;- triggered if the language asked cannot be set" id="4" />
-              <Parameter name="Language" inherits_from_parent="0" content_type="3" value="Italian" default_value="English" custom_choice="1" tooltip="Set the language the robot speaks and understands." id="5">
+              <Parameter name="Language" inherits_from_parent="0" content_type="3" value="English" default_value="English" custom_choice="1" tooltip="Set the language the robot speaks and understands." id="5">
                 <Choice value="Arabic" />
                 <Choice value="Brazilian" />
                 <Choice value="Chinese" />
@@ -325,7 +334,7 @@ class MyClass(GeneratedClass):
               </Parameter>
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="speechRecognition" id="2" localization="8" tooltip="Enter description here" x="577" y="374">
+            <Box name="Speech Recognition" id="2" localization="8" tooltip="Enter description here" x="577" y="374">
               <bitmap>media/images/box/box-diagram.png</bitmap>
               <script language="4">
                 <content>
@@ -339,7 +348,7 @@ class MyClass(GeneratedClass):
                 <BehaviorLayer name="behavior_layer1">
                   <BehaviorKeyframe name="keyframe1" index="1">
                     <Diagram>
-                      <Box name="Speech Reco." id="4" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="998" y="364">
+                      <Box name="Speech Reco." id="4" localization="8" tooltip="Recognize a word from a list of words set in the box parameters.&#x0A;&#x0A;V1.1.0&#x0A;" x="584" y="283">
                         <bitmap>media/images/box/interaction/ear.png</bitmap>
                         <script language="4">
                           <content>
@@ -429,19 +438,140 @@ class MyClass(GeneratedClass):
                 </BehaviorLayer>
               </Timeline>
             </Box>
-            <Link inputowner="8" indexofinput="2" outputowner="1" indexofoutput="6" />
+            <Box name="Add Number" id="4" localization="8" tooltip="Add numbers already in use to mapPoint." plugin="numberedit_plugin" x="507" y="282">
+              <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
+	def __init__(self):
+		GeneratedClass.__init__(self)
+
+	def onInput_onStart(self):
+		self.onStopped(4)]]>
+                </content>
+              </script>
+              <pluginContent>
+                <number>4</number>
+              </pluginContent>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="1" inner="0" tooltip="To send the number on the output." id="2" />
+              <Output name="onStopped" type="2" type_size="1" nature="2" inner="0" tooltip="The number you entered." id="3" />
+            </Box>
+            <Box name="Error Counter" id="6" localization="-1" tooltip="Stop program after five errors." x="878" y="120">
+              <bitmap>media/images/box/loop.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.initializeParameters()
+        if( self.getParameter("Final value") - self.getParameter("Initial value") >= 0 ):
+            self.stepSign = +1
+        else:
+            self.stepSign = -1
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onNext(self):
+        bParamChanged = ( self.nLast != self.getParameter("Final value") or self.nFirst != self.getParameter("Initial value") )
+        bEnd = ( self.stepSign * self.nCounter > self.stepSign * self.nLast )
+        if( bEnd or bParamChanged ):
+            self.onInput_onInit()
+        if( not bEnd or bParamChanged ):
+            currentCounter = self.nCounter
+            self.nCounter = self.nCounter + self.stepSign * self.getParameter("Step value")
+            self.currentValue( currentCounter )
+
+    def initializeParameters(self):
+        self.nFirst = self.getParameter("Initial value")
+        self.nCounter = self.nFirst
+        self.nLast = self.getParameter("Final value")
+
+    def onInput_onInit(self):
+        self.initializeParameters()
+        self.onReinitialized()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+              <Input name="onNext" type="1" type_size="1" nature="1" inner="0" tooltip="The counter next value is sent on the currentValue output when a signal is&#x0A;received on this input, unless it reached its Final value, then the onReinitialized&#x0A;output is stimulated." id="2" />
+              <Input name="onInit" type="1" type_size="1" nature="1" inner="0" tooltip="When a signal is received on this input, the counter is reinitialized to its Initial&#x0A;value." id="3" />
+              <Output name="currentValue" type="2" type_size="1" nature="2" inner="0" tooltip="Stimulated for each interaction with the counter current value." id="4" />
+              <Output name="onReinitialized" type="1" type_size="1" nature="2" inner="0" tooltip="Stimulated when the loop is over or if the counter has been reinitialized." id="5" />
+              <Parameter name="Initial value" inherits_from_parent="0" content_type="1" value="0" default_value="0" min="0" max="500" tooltip="The initial value of the counter (for the first iteration)." id="6" />
+              <Parameter name="Step value" inherits_from_parent="0" content_type="1" value="1" default_value="1" min="1" max="500" tooltip="The counter value will be incremented or decremented with this value." id="7" />
+              <Parameter name="Final value" inherits_from_parent="0" content_type="1" value="5" default_value="5" min="0" max="500" tooltip="It is the maximum (if increasing) or the minimum (if decreasing) value of the&#x0A;counter (thus for the last iteration).&#x0A;&#x0A;After this value, if the onStart input is called, the onReinitialized output will be&#x0A;stimulated and the counter will be reinitialized to its Initial value." id="8" />
+            </Box>
+            <Box name="Log and Terminate" id="10" localization="8" tooltip="Prompt the message in the debug window. You can set a prefix and a priority&#x0A;for the message in the parameters." x="866" y="263">
+              <bitmap>media/images/box/print.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_message(self, p):
+        sPriority = self.getParameter("Priority")
+        sMessage = self.getParameter("Message prefix")
+        if( sMessage != "" and p != None ):
+            sMessage += ": "
+        if( p != None ):
+            sMessage += str(p)
+        if( sPriority == "Fatal" ):
+            self.logger.fatal( sMessage )
+        elif( sPriority == "Error" ):
+            self.logger.error( sMessage )
+        elif( sPriority == "Warning" ):
+            self.logger.warning( sMessage )
+        elif( sPriority == "Info" ):
+            self.logger.info( sMessage )
+        elif( sPriority == "Debug" ):
+            self.logger.debug( sMessage )
+        self.onDone()]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="message" type="0" type_size="1" nature="1" inner="0" tooltip='The message to print or a &quot;Bang&quot; to only print the message set as parameter.' id="2" />
+              <Output name="onDone" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when box behavior is finished." id="3" />
+              <Parameter name="Message prefix" inherits_from_parent="0" content_type="3" value="flaskRequest failed five times" default_value="Message text" custom_choice="0" tooltip="Enter the text you want to print before the input message." id="4" />
+              <Parameter name="Priority" inherits_from_parent="0" content_type="3" value="Error" default_value="Info" custom_choice="0" tooltip="Enter the priority of your message. If you select error, the box will get red when it will be stimulated." id="5">
+                <Choice value="Fatal" />
+                <Choice value="Error" />
+                <Choice value="Warning" />
+                <Choice value="Info" />
+                <Choice value="Debug" />
+              </Parameter>
+            </Box>
             <Link inputowner="8" indexofinput="2" outputowner="1" indexofoutput="7" />
+            <Link inputowner="8" indexofinput="2" outputowner="1" indexofoutput="8" />
             <Link inputowner="1" indexofinput="3" outputowner="7" indexofoutput="3" />
             <Link inputowner="9" indexofinput="2" outputowner="0" indexofoutput="2" />
             <Link inputowner="5" indexofinput="2" outputowner="9" indexofoutput="3" />
+            <Link inputowner="1" indexofinput="3" outputowner="2" indexofoutput="3" />
+            <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="5" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="6" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="7" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="8" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="9" />
-            <Link inputowner="1" indexofinput="3" outputowner="2" indexofoutput="3" />
-            <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="3" />
-            <Link inputowner="0" indexofinput="4" outputowner="8" indexofoutput="4" />
+            <Link inputowner="1" indexofinput="4" outputowner="4" indexofoutput="3" />
+            <Link inputowner="4" indexofinput="2" outputowner="9" indexofoutput="3" />
+            <Link inputowner="6" indexofinput="2" outputowner="1" indexofoutput="5" />
+            <Link inputowner="6" indexofinput="2" outputowner="1" indexofoutput="6" />
+            <Link inputowner="10" indexofinput="2" outputowner="6" indexofoutput="5" />
+            <Link inputowner="0" indexofinput="4" outputowner="10" indexofoutput="3" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>

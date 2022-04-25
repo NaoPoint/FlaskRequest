@@ -10,8 +10,8 @@
     </Dialogs>
     <Resources />
     <Topics>
-        <Topic name="Museo_enu" src="Museo/Museo_enu.top" topicName="Museo" language="it_IT" nuance="iti" />
-        <Topic name="Opere_enu" src="Opere/Opere_enu.top" topicName="Opere" language="it_IT" nuance="iti" />
+        <Topic name="Museo_enu" src="Museo/Museo_enu.top" topicName="Museo" language="en_US" nuance="enu" />
+        <Topic name="Opere_enu" src="Opere/Opere_enu.top" topicName="Opere" language="en_US" nuance="enu" />
     </Topics>
     <IgnoredPaths />
     <Translations auto-fill="en_US">

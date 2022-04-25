@@ -1,5 +1,6 @@
 topic: ~Opere()
-language: iti
+language: enu
+
 concept:(Saluti) [Ciao "Ciao Nao" Buongiorno "Buongiorno Nao" Hey]
 concept:(Graticcio) [Graticcio {per bachicoltura}]
 concept:(Torcitoio) [Torcitoio {circolare}]

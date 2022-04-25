@@ -1,7 +1,7 @@
 topic: ~Museo()
-language: iti
+language: enu
 
-include:Opere_enu.top
+include:../Opere/Opere_enu.top
 
 u:(~Saluti) Ciao. Sei interessato alle opere o vuoi che ti consigli che stanze da visitare?
 u:(~Altro) Ok. Sei interessato alle opere o vuoi che ti consigli che stanze da visitare?
@@ -75,5 +75,3 @@ Il torcitoio è ancora in funzione grazie ad un motore elettrico.
             
 u:(~bagno) Sali al secondo piano, nella stanza della scienza serica.
 u:(~finale) Di nulla. Se hai bisogno di altre informazioni non esitare a chiedere. Buona visita!
-
-        
