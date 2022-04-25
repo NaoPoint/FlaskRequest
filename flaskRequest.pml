@@ -5,13 +5,13 @@
         <BehaviorDescription name="behavior" src="behavior_1" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs>
-        <Dialog name="MUSEO" src="museo/Museo.dlg" />
-        <Dialog name="Opere" src="museo/Opere.dlg" />
+        <Dialog name="Museo" src="Museo/Museo.dlg" />
+        <Dialog name="Opere" src="Opere/Opere.dlg" />
     </Dialogs>
     <Resources />
     <Topics>
-        <Topic name="Museo_enu" src="museo/Museo_enu.top" topicName="MUSEO" language="it_IT" nuance="iti" />
-        <Topic name="Opere_enu" src="museo/Opere_enu.top" topicName="Opere" language="it_IT" nuance="iti" />
+        <Topic name="Museo_enu" src="Museo/Museo_enu.top" topicName="Museo" language="it_IT" nuance="iti" />
+        <Topic name="Opere_enu" src="Opere/Opere_enu.top" topicName="Opere" language="it_IT" nuance="iti" />
     </Topics>
     <IgnoredPaths />
     <Translations auto-fill="en_US">
