@@ -257,6 +257,7 @@ class MyClass(GeneratedClass):
               <Output name="colori" type="2" type_size="1" nature="2" inner="0" tooltip="" id="7" />
               <Output name="incannatoio" type="2" type_size="1" nature="2" inner="0" tooltip="" id="8" />
               <Output name="ruota" type="2" type_size="1" nature="2" inner="0" tooltip="" id="9" />
+              <Output name="bagno" type="2" type_size="1" nature="2" inner="0" tooltip="" id="10" />
               <Resource name="Speech" type="Lock" timeout="0" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
@@ -334,7 +335,7 @@ class MyClass(GeneratedClass):
               </Parameter>
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Speech Recognition" id="2" localization="8" tooltip="Enter description here" x="577" y="374">
+            <Box name="Speech Recognition" id="2" localization="8" tooltip="Enter description here" x="573" y="374">
               <bitmap>media/images/box/box-diagram.png</bitmap>
               <script language="4">
                 <content>
@@ -572,6 +573,7 @@ class MyClass(GeneratedClass):
             <Link inputowner="6" indexofinput="2" outputowner="1" indexofoutput="6" />
             <Link inputowner="10" indexofinput="2" outputowner="6" indexofoutput="5" />
             <Link inputowner="0" indexofinput="4" outputowner="10" indexofoutput="3" />
+            <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="10" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
