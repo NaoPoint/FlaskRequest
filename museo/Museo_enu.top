@@ -3,8 +3,8 @@ language: enu
 
 include:../Opere/Opere_enu.top
 
-u:(~Saluti) Ciao. Sei interessato alle opere o vuoi che ti consigli che stanze da visitare?
-u:(~Altro) Ok. Sei interessato alle opere o vuoi che ti consigli che stanze da visitare?
+u:(~Saluti) Ciao. Sei interessato alle opere o vuoi che ti consigli le stanze da visitare?
+u:(~Altro) Ok. Sei interessato alle opere o vuoi che ti consigli le stanze da visitare?
 
 u:(~Opera) Ok. C'è un'opera a cui sei interessato o vuoi un elenco delle attrazioni più importanti?
 
