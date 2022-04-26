@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram scale="100">
-            <Box name="Set Reco. Lang." id="3" localization="8" tooltip="Select the language you would like the robot to recognize. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) will use this language.&#x0A;&#x0A;V1.1.0" plugin="setlanguage_plugin" x="110" y="384">
+            <Box name="Set Reco. Lang." id="3" localization="8" tooltip="Select the language you would like the robot to recognize. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) will use this language.&#x0A;&#x0A;V1.1.0" plugin="setlanguage_plugin" x="97" y="383">
               <bitmap>media/images/box/interaction/reco_voice.png</bitmap>
               <script language="4">
                 <content>
@@ -162,7 +162,7 @@ class MyClass(GeneratedClass):
               <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="10" />
               <Parameter name="maxPoint" inherits_from_parent="0" content_type="1" value="9" default_value="9" min="1" max="200" tooltip="" id="11" />
             </Box>
-            <Box name="Test Number" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="86" y="292">
+            <Box name="Test Number" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="113" y="287">
               <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
               <script language="4">
                 <content>
@@ -240,7 +240,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="339" y="85">
+            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="357" y="69">
               <dialogFile>../Museo/Museo.dlg</dialogFile>
               <bitmap>media/images/box/box-dialog.png</bitmap>
               <script language="4">
@@ -310,7 +310,7 @@ class MyClass(GeneratedClass):
               <Input name="onSet" type="1" type_size="1" nature="1" inner="0" tooltip="The data is set when a signal is received on this input." id="2" />
               <Output name="onReady" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the data has been set." id="3" />
               <Output name="onError" type="3" type_size="1" nature="2" inner="0" tooltip="Error output:&#x0A;- triggered if the language asked cannot be set" id="4" />
-              <Parameter name="Language" inherits_from_parent="0" content_type="3" value="English" default_value="English" custom_choice="1" tooltip="Set the language the robot speaks and understands." id="5">
+              <Parameter name="Language" inherits_from_parent="0" content_type="3" value="Italian" default_value="English" custom_choice="1" tooltip="Set the language the robot speaks and understands." id="5">
                 <Choice value="Arabic" />
                 <Choice value="Brazilian" />
                 <Choice value="Chinese" />
@@ -559,7 +559,6 @@ class MyClass(GeneratedClass):
             <Link inputowner="8" indexofinput="2" outputowner="1" indexofoutput="8" />
             <Link inputowner="1" indexofinput="3" outputowner="7" indexofoutput="3" />
             <Link inputowner="9" indexofinput="2" outputowner="0" indexofoutput="2" />
-            <Link inputowner="5" indexofinput="2" outputowner="9" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="2" indexofoutput="3" />
             <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="5" />
@@ -574,6 +573,7 @@ class MyClass(GeneratedClass):
             <Link inputowner="10" indexofinput="2" outputowner="6" indexofoutput="5" />
             <Link inputowner="0" indexofinput="4" outputowner="10" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="10" />
+            <Link inputowner="5" indexofinput="2" outputowner="9" indexofoutput="3" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>

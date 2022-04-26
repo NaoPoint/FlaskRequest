@@ -1,0 +1,77 @@
+topic: ~Museo()
+language: iti
+
+include:../Opere/Opere_iti.top
+
+u:(~Saluti) Ciao. Sei interessato alle opere o vuoi che ti consigli che stanze da visitare?
+u:(~Altro) Ok. Sei interessato alle opere o vuoi che ti consigli che stanze da visitare?
+
+u:(~Opera) Ok. C'è un'opera a cui sei interessato o vuoi un elenco delle attrazioni più importanti?
+
+    u1:(~Opera) Ok, quale?
+        u2:(~Torcitoio) $torcitoio=1 Il torcitoio è composto da una gabbia in legno per un totale di quattro piani di torcitura. Costruito nel 1818, è stato dato in comodato al comune di Abbadia Lariana alla fine degli anni 80, dal museo di Zurigo. 
+La ruota idraulica azionava due grandi ruote che trasmettevano il movimento a tutta la macchina: 972 rocchetti e gli aspi su cui si avvolgeva la matassa di filo. 
+Il torcitoio è ancora in funzione grazie ad un motore elettrico. 
+        u2:(~Graticcio) $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti. 
+        u2:(~Colori)  $colori=3 Abbiamo esposto una cassetta con le sostanze chimiche utilizzate per tingere la seta e fissare il colore, come il cromato di potassio o la barite caustica.
+        u2:(~Incannatoio) $incannatoio=4 L'incannatoio a pedale serve e effettuare l'incannaggio lasciando le mani libere. Il filo scorre dalla matassa sul guindolo e veniva avvolto nel rocchetto, che girava mosso dal pedale. 
+        u2:(~Ruota) $ruota=5 Sul retro dell'edificio sono visibili le due grandi ruote idraulicheche costituivano la forza motrice della fabbrica. La più grande, con 7 metri di diametro, è completamente restaurata. Le ruote erano azionate dall'acqua in caduta.
+        
+    u1:(~Elenco) Ok, le nostre attrazioni più importanti sono il torcitoio, il graticcio, le ruote idrauliche, la scatola dei colori e l'incannatoio a pedale. Vuoi più informazioni su una di queste?
+        u2:(~Sì) Ok, quale?
+            u3:(~Torcitoio) $torcitoio=1 Il torcitoio è composto da una gabbia in legno per un totale di quattro piani di torcitura. Costruito nel 1818, è stato dato in comodato al comune di Abbadia Lariana alla fine degli anni 80, dal museo di Zurigo. 
+La ruota idraulica azionava due grandi ruote che trasmettevano il movimento a tutta la macchina: 972 rocchetti e gli aspi su cui si avvolgeva la matassa di filo. 
+Il torcitoio è ancora in funzione grazie ad un motore elettrico. 
+            u3:(~Graticcio) $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti. 
+            u3:(~Colori) $colori=3  Abbiamo esposto una cassetta con le sostanze chimiche utilizzate per tingere la seta e fissare il colore, come il cromato di potassio o la barite caustica.
+            u3:(~Incannatoio) $incannatoio=4 L'incannatoio a pedale serve e effettuare l'incannaggio lasciando le mani libere. Il filo scorre dalla matassa sul guindolo e veniva avvolto nel rocchetto, che girava mosso dal pedale. 
+            u3:(~Ruota) $ruota=5 Sul retro dell'edificio sono visibili le due grandi ruote idraulicheche costituivano la forza motrice della fabbrica. La più grande, con 7 metri di diametro, è completamente restaurata. Le ruote erano azionate dall'acqua in caduta. 
+        u2:(~No) Ok, se vuoi altre informazioni non esitare a chiedere.
+        u2:(~Torcitoio) $torcitoio=1 Il torcitoio è composto da una gabbia in legno per un totale di quattro piani di torcitura. Costruito nel 1818, è stato dato in comodato al comune di Abbadia Lariana alla fine degli anni 80, dal museo di Zurigo. 
+La ruota idraulica azionava due grandi ruote che trasmettevano il movimento a tutta la macchina: 972 rocchetti e gli aspi su cui si avvolgeva la matassa di filo. 
+Il torcitoio è ancora in funzione grazie ad un motore elettrico. 
+        u2:(~Graticcio) $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti. 
+        u2:(~Colori)  $colori=3 Abbiamo esposto una cassetta con le sostanze chimiche utilizzate per tingere la seta e fissare il colore, come il cromato di potassio o la barite caustica.
+        u2:(~Incannatoio) $incannatoio=4 L'incannatoio a pedale serve e effettuare l'incannaggio lasciando le mani libere. Il filo scorre dalla matassa sul guindolo e veniva avvolto nel rocchetto, che girava mosso dal pedale. 
+        u2:(~Ruota) $ruota=5 Sul retro dell'edificio sono visibili le due grandi ruote idraulicheche costituivano la forza motrice della fabbrica. La più grande, con 7 metri di diametro, è completamente restaurata. Le ruote erano azionate dall'acqua in caduta.
+        
+    u1:(~Torcitoio) $torcitoio=1 Il torcitoio è composto da una gabbia in legno per un totale di quattro piani di torcitura. Costruito nel 1818, è stato dato in comodato al comune di Abbadia Lariana alla fine degli anni 80, dal museo di Zurigo. 
+La ruota idraulica azionava due grandi ruote che trasmettevano il movimento a tutta la macchina: 972 rocchetti e gli aspi su cui si avvolgeva la matassa di filo. 
+Il torcitoio è ancora in funzione grazie ad un motore elettrico. 
+    u1:(~Graticcio)  $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti.
+    u1:(~Colori) $colori=3 Abbiamo esposto una cassetta con le sostanze chimiche utilizzate per tingere la seta e fissare il colore, come il cromato di potassio o la barite caustica. 
+    u1:(~Incannatoio) $incannatoio=4 L'incannatoio a pedale serve e effettuare l'incannaggio lasciando le mani libere. Il filo scorre dalla matassa sul guindolo e veniva avvolto nel rocchetto, che girava mosso dal pedale. 
+    u1:(~Ruota) $ruota=5 Sul retro dell'edificio sono visibili le due grandi ruote idraulicheche costituivano la forza motrice della fabbrica. La più grande, con 7 metri di diametro, è completamente restaurata. Le ruote erano azionate dall'acqua in caduta.
+
+u:(~Stanze) Ok. Sei interessato all'allevamento dei bachi o alla produzione della seta?
+   
+    u1:(~Allevamento) Allora ti consiglio di visitare la sala dal baco al filo da seta, al secondo piano, e di guardare in particolare il graticcio per bachicoltura, il trinciagelso e il crivello. Successivamente puoi scendere al primo piano e visitare il soffocatoio. Sei interessato a una di queste opere?
+        u2:(~No) Ok, buona visita.
+        u2:(~Sì) Quale?
+            u3:(~Graticcio) $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti. 
+        u2:(~Graticcio) $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti.       
+        
+    u1:(~Produzione) Allora le stanze che puoi visitare sono: la sala della Scienza Serica, la sala "dal baco al filo da seta", la stanza del torcitoio o le ruote idrauliche sull'esterno. Vuoi informazioni su una di queste?
+        u2:(~Sì) Ok, quale?
+            u3:(~Torcitoio) $torcitoio=1 Il torcitoio è composto da una gabbia in legno per un totale di quattro piani di torcitura. Costruito nel 1818, è stato dato in comodato al comune di Abbadia Lariana alla fine degli anni 80, dal museo di Zurigo. 
+La ruota idraulica azionava due grandi ruote che trasmettevano il movimento a tutta la macchina: 972 rocchetti e gli aspi su cui si avvolgeva la matassa di filo. 
+Il torcitoio è ancora in funzione grazie ad un motore elettrico. 
+            u3:(~Ruota) $ruota=5 Sul retro dell'edificio sono visibili le due grandi ruote idraulicheche costituivano la forza motrice della fabbrica. La più grande, con 7 metri di diametro, è completamente restaurata. Le ruote erano azionate dall'acqua in caduta.
+            u3:(~Sala1) $graticcio=2 Nella sala "dal baco al filo da seta" vi è un'intera sezione dedicata alla produzione della seta. Oltre al graticcio e al trinciagelso, legati all'allevamento dei bachi, sono presenti il crivello, l'aspo, l'incannatoio a mano, un modello del torcitoio, una cavigliera, una passatoia, un tornello e un telaio a mano. Sei interessato a uno di questi?
+                u4:(~Sì) Ok, quale?
+                    u5:(~Graticcio)  $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti.
+                u4:(~Graticcio)  $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti.
+                u4:(~No) Ok, buona visita.
+        u2:(~No) Ok, se vuoi altre informazioni non esitare a chiedere.
+        u2:(~Torcitoio) $torcitoio=1 Il torcitoio è composto da una gabbia in legno per un totale di quattro piani di torcitura. Costruito nel 1818, è stato dato in comodato al comune di Abbadia Lariana alla fine degli anni 80, dal museo di Zurigo. 
+La ruota idraulica azionava due grandi ruote che trasmettevano il movimento a tutta la macchina: 972 rocchetti e gli aspi su cui si avvolgeva la matassa di filo. 
+Il torcitoio è ancora in funzione grazie ad un motore elettrico. 
+        u2:(~Ruota) $ruota=5 Sul retro dell'edificio sono visibili le due grandi ruote idraulicheche costituivano la forza motrice della fabbrica. La più grande, con 7 metri di diametro, è completamente restaurata. Le ruote erano azionate dall'acqua in caduta.
+        u2:(~Sala1) $graticcio=2 Nella sala "dal baco al filo da seta" vi è un'intera sezione dedicata alla produzione della seta. Oltre al graticcio e al trinciagelso, legati all'allevamento dei bachi, sono presenti il crivello, l'aspo, l'incannatoio a mano, un modello del torcitoio, una cavigliera, una passatoia, un tornello e un telaio a mano. Sei interessato a uno di questi?
+            u3:(~Sì) Ok, quale?
+                u4:(~Graticcio)  $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti.
+            u3:(~Graticcio)  $graticcio=2 I graticci vengono utilizzati per tenere e nutrire i bachi da seta appena nati. Le uova erano consegnate ai contadini dalla famiglia Monti e venivano poste in luoghi caldi, a volte anche sotto i vestiti.
+            u3:(~No) Ok, buona visita.
+            
+u:(~Bagno) $bagno=6 Sali al secondo piano, nella stanza della scienza serica.
+u:(~Finale) Di nulla. Se hai bisogno di altre informazioni non esitare a chiedere. Buona visita!
