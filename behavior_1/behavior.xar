@@ -499,7 +499,7 @@ class MyClass(GeneratedClass):
                 <Choice value="Debug" />
               </Parameter>
             </Box>
-            <Box name="If major" id="11" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="864" y="273">
+            <Box name="If major" id="11" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="897" y="259">
               <bitmap>media/images/box/box-diagram.png</bitmap>
               <script language="4">
                 <content>
@@ -528,6 +528,7 @@ class MyClass(GeneratedClass):
             self.output()
 
     def output(self):
+        time.sleep(20)
         if(self.variable1 >= self.variable2):
             self.Axis(1)
             self.VariableX(float(self.variable1))
@@ -554,7 +555,7 @@ class MyClass(GeneratedClass):
               </Parameter>
               <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="0" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="8" />
             </Box>
-            <Box name="Andata" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1023" y="264">
+            <Box name="Andata" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1053" y="237">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -753,14 +754,14 @@ class MyClass(GeneratedClass):
         self.y = 0.0
         self.z = 0.0
 
-        self.maxSpeed = 0.5
+        self.maxSpeed = 0.2
 
         self.effector = "RArm"
 
         self.frame = 2 #FRAME ROBOT
 
     def onLoad(self):
-        self.tracker = self.session().service( "ALTracker" )
+        self.tracker = self.session().service("ALTracker")
         self.BIND_PYTHON(self.getName(), "setParameter")
 
     def onUnload(self):
@@ -786,7 +787,7 @@ class MyClass(GeneratedClass):
 
         self.frame = 2
 
-        self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, speed)
+        self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
         self.VariableOutX(self.VariableX)
         self.AxisOut(self.Axis)
         self.onStopped()
@@ -798,23 +799,21 @@ class MyClass(GeneratedClass):
     def setParameter(self, parameterName, newValue):
         GeneratedClass.setParameter(self, parameterName, newValue)
 
-        speed = self.maxSpeed
-
         if (parameterName == "X (m)"):
             self.x = newValue
-            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, speed)
+            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
             self.onStopped()
             return
 
         if (parameterName == "Y (m)"):
             self.y = newValue
-            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, speed)
+            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
             self.onStopped()
             return
 
         if (parameterName == "Z (m)"):
             self.z = newValue
-            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, speed)
+            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
             self.onStopped()
             return
 
@@ -824,7 +823,7 @@ class MyClass(GeneratedClass):
 
         if (parameterName == "Effector"):
             self.effector = newValue
-            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, speed)
+            self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
             self.onStopped()
             return
 
