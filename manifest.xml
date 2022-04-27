@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.0" installOnlyAtStartup="false" uuid="flaskrequest-a9c664">
+<package uuid="flaskrequest-a9c664" installOnlyAtStartup="false" version="0.0.0">
  <names>
   <name lang="en_US">flaskRequest</name>
  </names>
@@ -17,11 +17,11 @@
    <nature>interactive</nature>
    <permissions/>
   </behaviorContent>
-  <dialogContent typeVersion="1.0" topicName="Museo">
+  <dialogContent topicName="Museo" typeVersion="1.0">
    <topic path="Museo/Museo_enu.top" language="en_US"/>
    <topic path="Museo/Museo_iti.top" language="it_IT"/>
   </dialogContent>
-  <dialogContent typeVersion="1.0" topicName="Opere">
+  <dialogContent topicName="Opere" typeVersion="1.0">
    <topic path="Opere/Opere_enu.top" language="en_US"/>
    <topic path="Opere/Opere_iti.top" language="it_IT"/>
   </dialogContent>
