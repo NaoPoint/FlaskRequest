@@ -528,24 +528,21 @@ class MyClass(GeneratedClass):
             self.output()
 
     def output(self):
-        time.sleep(20)
+        time.sleep(15)
+        self.variable1 = (self.variable1 / 100.) * 0.523 + 0.25
+        self.variable2 = (self.variable2 / 100.) * 0.93 + 0.25
+
         if(self.variable1 >= self.variable2):
-            self.Axis(1)
-            self.VariableX(float(self.variable1))
-            self.VariableY(float(self.variable2))
+            self.Coordinates([1, self.variable1, self.variable2])
         else:
-            self.Axis(-1)
-            self.VariableX(float(self.variable2))
-            self.VariableY(float(self.variable1))]]>
+            self.Coordinates([-1, self.variable2, self.variable1])]]>
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="Variable1" type="2" type_size="1" nature="1" inner="0" tooltip="" id="2" />
               <Input name="Variable2" type="2" type_size="1" nature="1" inner="0" tooltip="" id="3" />
-              <Output name="VariableX" type="2" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is true." id="4" />
-              <Output name="VariableY" type="2" type_size="1" nature="2" inner="0" tooltip="Signal sent if the condition is false." id="5" />
-              <Output name="Axis" type="2" type_size="1" nature="2" inner="0" tooltip="" id="6" />
-              <Parameter name="Condition operator" inherits_from_parent="0" content_type="3" value="≠" default_value="≠" custom_choice="0" tooltip='Choose the condition operator.&#x0A;&#x0A;For example:&#x0A;If you choose &quot;&gt; or =&quot;, the condition will be: is the input is higher or equal&#x0A;than the parameter?' id="7">
+              <Output name="Coordinates" type="2" type_size="3" nature="2" inner="0" tooltip="" id="4" />
+              <Parameter name="Condition operator" inherits_from_parent="0" content_type="3" value="≠" default_value="≠" custom_choice="0" tooltip='Choose the condition operator.&#x0A;&#x0A;For example:&#x0A;If you choose &quot;&gt; or =&quot;, the condition will be: is the input is higher or equal&#x0A;than the parameter?' id="5">
                 <Choice value="&lt;" />
                 <Choice value="&lt; or =" />
                 <Choice value="=" />
@@ -553,9 +550,9 @@ class MyClass(GeneratedClass):
                 <Choice value="&gt;" />
                 <Choice value="≠" />
               </Parameter>
-              <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="0" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="8" />
+              <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="0" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="6" />
             </Box>
-            <Box name="Andata" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1019" y="225">
+            <Box name="Andata" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1025" y="269">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -564,16 +561,12 @@ class MyClass(GeneratedClass):
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
-              <Input name="VariableX" type="2" type_size="1" nature="2" inner="0" tooltip="" id="3" />
-              <Input name="VariableY" type="2" type_size="1" nature="2" inner="0" tooltip="" id="4" />
-              <Input name="Axis" type="2" type_size="1" nature="2" inner="0" tooltip="" id="5" />
-              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="6" />
-              <Output name="VariableOutX" type="2" type_size="1" nature="2" inner="0" tooltip="" id="7" />
-              <Output name="VariableOutY" type="2" type_size="1" nature="2" inner="0" tooltip="" id="8" />
-              <Output name="AxisOut" type="2" type_size="1" nature="2" inner="0" tooltip="" id="9" />
-              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot X axis." id="10" />
-              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot Y axis." id="11" />
-              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="0.785" default_value="0" min="-3.14" max="3.14" tooltip="Angle to travel around the robot Z axis." id="12" />
+              <Input name="Coordinates" type="2" type_size="3" nature="2" inner="0" tooltip="" id="3" />
+              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="4" />
+              <Output name="CoordinatesOut" type="2" type_size="3" nature="1" inner="0" tooltip="" id="5" />
+              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot X axis." id="6" />
+              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot Y axis." id="7" />
+              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="0.785" default_value="0" min="-3.14" max="3.14" tooltip="Angle to travel around the robot Z axis." id="8" />
               <Timeline enable="0">
                 <BehaviorLayer name="behavior_layer1">
                   <BehaviorKeyframe name="keyframe1" index="1">
@@ -597,32 +590,20 @@ class MyClass(GeneratedClass):
         if self.compass:
             self.compass.moveTo(0.0, 0.0, 0.0)
 
-    def onInput_VariableX(self, p):
-        self.VariableX = (p/100.)*0.523 + 0.25
-        if hasattr(self, 'VariableY') and hasattr(self, 'Axis'):
-            self.Movement()
+    def onInput_Coordinates(self, p):
+        self.x = p[0]
+        self.axis = p[2]
 
-    def onInput_VariableY(self, p):
-        self.VariableY = (p/100.)*0.93 + 0.25
-        if hasattr(self, 'VariableX') and hasattr(self, 'Axis'):
-            self.Movement()
+        self.movement()
+        self.CoordinatesOut(p)
 
-    def onInput_Axis(self, p):
-        self.Axis = p
-        if hasattr(self, 'VariableX') and hasattr(self, 'VariableY'):
-            self.Movement()
-
-    def Movement(self):
+    def movement(self):
         if self.compass:
-            self.compass.moveTo(0.0, 0.0, -self.Axis * 0.7854)
+            self.compass.moveTo(0.0, 0.0, -self.axis * 0.7854)
             time.sleep(0.5)
-            self.compass.moveTo(self.VariableX, 0.0, 0.0)
+            self.compass.moveTo(self.x, 0.0, 0.0)
             time.sleep(0.2)
-            self.compass.moveTo(0.0, 0.0, self.Axis * 1.5708)
-
-        self.VariableOutX(self.VariableX)
-        self.VariableOutY(self.VariableY)
-        self.AxisOut(self.Axis)
+            self.compass.moveTo(0.0, 0.0, self.axis * 1.5708)
 
     def onInput_onStop(self):
         self.onUnload()
@@ -631,16 +612,12 @@ class MyClass(GeneratedClass):
                         </script>
                         <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
                         <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
-                        <Input name="VariableX" type="2" type_size="1" nature="1" inner="0" tooltip="" id="3" />
-                        <Input name="VariableY" type="2" type_size="1" nature="1" inner="0" tooltip="" id="4" />
-                        <Input name="Axis" type="2" type_size="1" nature="1" inner="0" tooltip="" id="5" />
-                        <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="6" />
-                        <Output name="VariableOutX" type="2" type_size="1" nature="2" inner="0" tooltip="" id="7" />
-                        <Output name="VariableOutY" type="2" type_size="1" nature="2" inner="0" tooltip="" id="8" />
-                        <Output name="AxisOut" type="2" type_size="1" nature="2" inner="0" tooltip="" id="9" />
-                        <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="10" />
-                        <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="11" />
-                        <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="12" />
+                        <Input name="Coordinates" type="2" type_size="3" nature="1" inner="0" tooltip="" id="3" />
+                        <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
+                        <Output name="CoordinatesOut" type="2" type_size="3" nature="2" inner="0" tooltip="" id="5" />
+                        <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="6" />
+                        <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="7" />
+                        <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="8" />
                         <Resource name="Legs" type="Lock" timeout="0" />
                       </Box>
                       <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="252" y="241">
@@ -724,22 +701,17 @@ class MyClass(GeneratedClass):
                         </Timeline>
                       </Box>
                       <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="6" />
-                      <Link inputowner="0" indexofinput="7" outputowner="2" indexofoutput="7" />
-                      <Link inputowner="0" indexofinput="8" outputowner="2" indexofoutput="8" />
-                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="3" />
+                      <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
                       <Link inputowner="2" indexofinput="3" outputowner="0" indexofoutput="3" />
-                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="4" />
-                      <Link inputowner="2" indexofinput="4" outputowner="0" indexofoutput="4" />
-                      <Link inputowner="2" indexofinput="5" outputowner="0" indexofoutput="5" />
-                      <Link inputowner="0" indexofinput="9" outputowner="2" indexofoutput="9" />
-                      <Link inputowner="0" indexofinput="6" outputowner="2" indexofoutput="6" />
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="3" />
                     </Diagram>
                   </BehaviorKeyframe>
                 </BehaviorLayer>
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
-            <Box name="Point At" id="13" localization="-1" tooltip="This box makes the robot point to a desired position." x="1194" y="211">
+            <Box name="Point At" id="13" localization="-1" tooltip="This box makes the robot point to a desired position." x="1117" y="118">
               <bitmap>media/images/box/movement/move_arm.png</bitmap>
               <script language="4">
                 <content>
@@ -766,32 +738,21 @@ class MyClass(GeneratedClass):
     def onUnload(self):
         pass
 
-    def onInput_VariableX(self, p):
-        self.VariableX = p
-        if hasattr(self, 'VariableY') and hasattr(self, 'Axis'):
-            self.Output()
+    def onInput_Coordinates(self, p):
+        self.pointer = p[1]    #self.y
 
-    def onInput_VariableY(self, p):
-        self.VariableY = p
-        if hasattr(self, 'VariableX') and hasattr(self, 'Axis'):
-            self.Output()
+        self.output()
+        self.CoordinatesOut(p)
 
-    def onInput_Axis(self, p):
-        self.Axis = p
-        if hasattr(self, 'VariableX') and hasattr(self, 'VariableY'):
-            self.Output()
-
-    def Output(self):
-        self.x = self.VariableY
+    def output(self):
+        self.x = self.pointer
         self.y = 0.0
         self.z = 0.0
 
         self.frame = 2
 
         self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
-
-        self.VariableOutX(self.VariableX)
-        self.AxisOut(self.Axis)
+        time.sleep(0.5)
 
     def onInput_onStop(self):
         self.onUnload()
@@ -839,28 +800,25 @@ class MyClass(GeneratedClass):
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
-              <Input name="VariableX" type="2" type_size="1" nature="1" inner="0" tooltip="" id="3" />
-              <Input name="VariableY" type="2" type_size="1" nature="1" inner="0" tooltip="" id="4" />
-              <Input name="Axis" type="2" type_size="1" nature="1" inner="0" tooltip="" id="5" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="6" />
-              <Output name="VariableOutX" type="2" type_size="1" nature="2" inner="0" tooltip="" id="7" />
-              <Output name="AxisOut" type="2" type_size="1" nature="2" inner="0" tooltip="" id="8" />
-              <Parameter name="X (m)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0.001" max="10" tooltip="X coordinate of the target to point at." id="9" />
-              <Parameter name="Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Y coordinate of the target to point at." id="10" />
-              <Parameter name="Z (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Z coordinate of the target to point at." id="11" />
-              <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="50" default_value="50" min="1" max="100" tooltip="Speed to look at the desired position" id="12" />
-              <Parameter name="Effector" inherits_from_parent="0" content_type="3" value="Arms" default_value="Arms" custom_choice="0" tooltip="Effector to use" id="13">
+              <Input name="Coordinates" type="2" type_size="3" nature="1" inner="0" tooltip="" id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Output name="CoordinatesOut" type="2" type_size="3" nature="1" inner="0" tooltip="" id="5" />
+              <Parameter name="X (m)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0.001" max="10" tooltip="X coordinate of the target to point at." id="6" />
+              <Parameter name="Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Y coordinate of the target to point at." id="7" />
+              <Parameter name="Z (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Z coordinate of the target to point at." id="8" />
+              <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="50" default_value="50" min="1" max="100" tooltip="Speed to look at the desired position" id="9" />
+              <Parameter name="Effector" inherits_from_parent="0" content_type="3" value="Arms" default_value="Arms" custom_choice="0" tooltip="Effector to use" id="10">
                 <Choice value="Arms" />
                 <Choice value="LArm" />
                 <Choice value="RArm" />
               </Parameter>
-              <Parameter name="Frame" inherits_from_parent="0" content_type="3" value="Torso" default_value="Torso" custom_choice="0" tooltip="Select the frame of target." id="14">
+              <Parameter name="Frame" inherits_from_parent="0" content_type="3" value="Torso" default_value="Torso" custom_choice="0" tooltip="Select the frame of target." id="11">
                 <Choice value="Torso" />
                 <Choice value="World" />
                 <Choice value="Robot" />
               </Parameter>
             </Box>
-            <Box name="Ritorno" id="14" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1313" y="102">
+            <Box name="Ritorno" id="8" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1325" y="171">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -869,18 +827,17 @@ class MyClass(GeneratedClass):
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
-              <Input name="VariableX" type="2" type_size="1" nature="2" inner="0" tooltip="" id="3" />
-              <Input name="Axis" type="2" type_size="1" nature="2" inner="0" tooltip="" id="4" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="5" />
-              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="6" />
-              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot X axis." id="7" />
-              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot Y axis." id="8" />
-              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="Angle to travel around the robot Z axis." id="9" />
+              <Input name="Coordinates" type="2" type_size="3" nature="2" inner="0" tooltip="" id="3" />
+              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="4" />
+              <Output name="CoordinatesOut" type="2" type_size="3" nature="1" inner="0" tooltip="" id="5" />
+              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot X axis." id="6" />
+              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot Y axis." id="7" />
+              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="0.785" default_value="0" min="-3.14" max="3.14" tooltip="Angle to travel around the robot Z axis." id="8" />
               <Timeline enable="0">
                 <BehaviorLayer name="behavior_layer1">
                   <BehaviorKeyframe name="keyframe1" index="1">
                     <Diagram>
-                      <Box name="Move To" id="2" localization="8" tooltip="Make the robot move to a configured point relative to its current location." x="532" y="110">
+                      <Box name="Move To" id="2" localization="8" tooltip="Make the robot move to a configured point relative to its current location." x="530" y="131">
                         <bitmap>media/images/box/movement/walk_forward.png</bitmap>
                         <script language="4">
                           <content>
@@ -899,24 +856,20 @@ class MyClass(GeneratedClass):
         if self.compass:
             self.compass.moveTo(0.0, 0.0, 0.0)
 
-    def onInput_VariableX(self, p):
-        self.VariableX = p
-        if hasattr(self, 'Axis'):
-            self.Movement()
+    def onInput_Coordinates(self, p):
+        self.x = p[0]
+        self.axis = p[2]
 
-    def onInput_Axis(self, p):
-        self.Axis = p
-        if hasattr(self, 'VariableX'):
-            self.Movement()
+        self.movement()
+        self.CoordinatesOut(p)
 
-    def Movement(self):
+    def movement(self):
         if self.compass:
-            self.compass.moveTo(0.0, 0.0, self.Axis * 1.5708)
+            self.compass.moveTo(0.0, 0.0, self.axis * 1.5708)
             time.sleep(0.5)
-            self.compass.moveTo(self.VariableX, 0.0, 0.0)
+            self.compass.moveTo(self.x, 0.0, 0.0)
             time.sleep(0.2)
-            self.compass.moveTo(0.0, 0.0, -self.Axis * 2.356)
-        self.onStopped()
+            self.compass.moveTo(0.0, 0.0, -self.axis * 2.356)
 
     def onInput_onStop(self):
         self.onUnload()
@@ -924,18 +877,16 @@ class MyClass(GeneratedClass):
                           </content>
                         </script>
                         <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-                        <Input name="VariableX" type="2" type_size="1" nature="1" inner="0" tooltip="" id="4" />
-                        <Input name="Axis" type="2" type_size="1" nature="1" inner="0" tooltip="" id="5" />
-                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="6" />
-                        <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="7" />
-                        <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="8" />
-                        <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="9" />
-                        <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="10" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="2" />
+                        <Input name="Coordinates" type="2" type_size="3" nature="1" inner="0" tooltip="" id="3" />
+                        <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
+                        <Output name="CoordinatesOut" type="2" type_size="3" nature="2" inner="0" tooltip="" id="5" />
+                        <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="6" />
+                        <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="7" />
+                        <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="8" />
                         <Resource name="Legs" type="Lock" timeout="0" />
                       </Box>
-                      <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="200" y="216">
+                      <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="252" y="241">
                         <bitmap>media/images/box/sensors/fall_manager.png</bitmap>
                         <script language="4">
                           <content>
@@ -1015,11 +966,11 @@ class MyClass(GeneratedClass):
                           </BehaviorLayer>
                         </Timeline>
                       </Box>
-                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="6" />
-                      <Link inputowner="2" indexofinput="3" outputowner="3" indexofoutput="6" />
-                      <Link inputowner="2" indexofinput="4" outputowner="0" indexofoutput="3" />
+                      <Link inputowner="2" indexofinput="2" outputowner="3" indexofoutput="6" />
+                      <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
+                      <Link inputowner="2" indexofinput="3" outputowner="0" indexofoutput="3" />
                       <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="3" />
-                      <Link inputowner="2" indexofinput="5" outputowner="0" indexofoutput="4" />
                     </Diagram>
                   </BehaviorKeyframe>
                 </BehaviorLayer>
@@ -1043,17 +994,11 @@ class MyClass(GeneratedClass):
             <Link inputowner="0" indexofinput="4" outputowner="10" indexofoutput="3" />
             <Link inputowner="1" indexofinput="3" outputowner="5" indexofoutput="10" />
             <Link inputowner="5" indexofinput="2" outputowner="9" indexofoutput="3" />
-            <Link inputowner="13" indexofinput="4" outputowner="12" indexofoutput="8" />
-            <Link inputowner="13" indexofinput="3" outputowner="12" indexofoutput="7" />
-            <Link inputowner="14" indexofinput="3" outputowner="13" indexofoutput="7" />
-            <Link inputowner="12" indexofinput="5" outputowner="11" indexofoutput="6" />
-            <Link inputowner="13" indexofinput="5" outputowner="12" indexofoutput="9" />
-            <Link inputowner="14" indexofinput="4" outputowner="13" indexofoutput="8" />
             <Link inputowner="11" indexofinput="2" outputowner="1" indexofoutput="7" />
             <Link inputowner="11" indexofinput="3" outputowner="1" indexofoutput="8" />
-            <Link inputowner="0" indexofinput="4" outputowner="14" indexofoutput="5" />
             <Link inputowner="12" indexofinput="3" outputowner="11" indexofoutput="4" />
-            <Link inputowner="12" indexofinput="4" outputowner="11" indexofoutput="5" />
+            <Link inputowner="13" indexofinput="3" outputowner="12" indexofoutput="5" />
+            <Link inputowner="8" indexofinput="3" outputowner="13" indexofoutput="5" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
