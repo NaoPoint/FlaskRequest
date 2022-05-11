@@ -182,7 +182,7 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="1" type_size="1" nature="1" inner="0" tooltip="To send the text on the output." id="2" />
               <Output name="onStopped" type="3" type_size="1" nature="2" inner="0" tooltip="The text you entered." id="3" />
             </Box>
-            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="354" y="184">
+            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="346" y="223">
               <dialogFile>../Museo/Museo.dlg</dialogFile>
               <bitmap>media/images/box/box-dialog.png</bitmap>
               <script language="4">
@@ -445,7 +445,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Step value" inherits_from_parent="0" content_type="1" value="1" default_value="1" min="1" max="500" tooltip="The counter value will be incremented or decremented with this value." id="7" />
               <Parameter name="Final value" inherits_from_parent="0" content_type="1" value="5" default_value="5" min="0" max="500" tooltip="It is the maximum (if increasing) or the minimum (if decreasing) value of the&#x0A;counter (thus for the last iteration).&#x0A;&#x0A;After this value, if the onStart input is called, the onReinitialized output will be&#x0A;stimulated and the counter will be reinitialized to its Initial value." id="8" />
             </Box>
-            <Box name="Log and Terminate" id="10" localization="8" tooltip="Prompt the message in the debug window. You can set a prefix and a priority&#x0A;for the message in the parameters." x="920" y="7">
+            <Box name="Log and Terminate" id="10" localization="8" tooltip="Prompt the message in the debug window. You can set a prefix and a priority&#x0A;for the message in the parameters." x="1123" y="25">
               <bitmap>media/images/box/print.png</bitmap>
               <script language="4">
                 <content>
@@ -928,7 +928,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
-            <Box name="Button" id="14" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="555" y="48">
+            <Box name="Button" id="14" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="744" y="65">
               <bitmap>media/images/box/movement/move.png</bitmap>
               <script language="4">
                 <content>
@@ -952,6 +952,7 @@ class MyClass(GeneratedClass):
                     <Key frame="80" value="8" />
                     <Key frame="120" value="8" />
                     <Key frame="160" value="18" />
+                    <Key frame="165" value="8" />
                     <Key frame="190" value="-8.61579" />
                   </ActuatorCurve>
                   <ActuatorCurve name="value" actuator="HeadYaw" mute="0" unit="0">
@@ -960,6 +961,7 @@ class MyClass(GeneratedClass):
                     <Key frame="80" value="12" />
                     <Key frame="120" value="12" />
                     <Key frame="160" value="-17" />
+                    <Key frame="165" value="-12" />
                     <Key frame="190" value="0.700723" />
                   </ActuatorCurve>
                   <ActuatorCurve name="" actuator="LAnklePitch" mute="0" unit="0">
@@ -973,6 +975,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-60" />
                     <Key frame="140" value="-59.8641" />
                     <Key frame="160" value="-35" />
+                    <Key frame="165" value="-59.5" />
                     <Key frame="180" value="4.61403" />
                     <Key frame="190" value="4.83163" />
                   </ActuatorCurve>
@@ -987,6 +990,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="4.2" />
                     <Key frame="140" value="3.24962" />
                     <Key frame="160" value="-15" />
+                    <Key frame="165" value="0.5" />
                     <Key frame="180" value="-6.59417" />
                     <Key frame="190" value="-6.50159" />
                   </ActuatorCurve>
@@ -1000,6 +1004,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="-87.9198" />
                     <Key frame="120" value="-88.5" />
                     <Key frame="160" value="-55" />
+                    <Key frame="165" value="-49" />
                     <Key frame="180" value="-22.41" />
                     <Key frame="190" value="-16.8728" />
                   </ActuatorCurve>
@@ -1013,6 +1018,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="-19.7089" />
                     <Key frame="120" value="-20" />
                     <Key frame="160" value="0" />
+                    <Key frame="165" value="-24" />
                     <Key frame="180" value="-69.2611" />
                     <Key frame="190" value="-67.5033" />
                   </ActuatorCurve>
@@ -1038,6 +1044,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-60" />
                     <Key frame="140" value="-59.8562" />
                     <Key frame="160" value="-35" />
+                    <Key frame="165" value="-59.9" />
                     <Key frame="180" value="7.29742" />
                     <Key frame="190" value="7.29742" />
                   </ActuatorCurve>
@@ -1052,6 +1059,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="30.3" />
                     <Key frame="140" value="24.0546" />
                     <Key frame="160" value="10" />
+                    <Key frame="165" value="35" />
                     <Key frame="180" value="6.81778" />
                     <Key frame="190" value="6.68218" />
                   </ActuatorCurve>
@@ -1066,6 +1074,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="0" />
                     <Key frame="140" value="-0.220298" />
                     <Key frame="160" value="-5.7" />
+                    <Key frame="165" value="-7.6" />
                     <Key frame="180" value="-9.46575" />
                     <Key frame="190" value="-9.92936" />
                   </ActuatorCurve>
@@ -1080,6 +1089,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="120" />
                     <Key frame="140" value="119.581" />
                     <Key frame="160" value="70" />
+                    <Key frame="165" value="119.9" />
                     <Key frame="180" value="-5.27406" />
                     <Key frame="190" value="-5.3638" />
                   </ActuatorCurve>
@@ -1093,6 +1103,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="-85.0723" />
                     <Key frame="120" value="-85.2" />
                     <Key frame="160" value="20" />
+                    <Key frame="165" value="4" />
                     <Key frame="180" value="10.8083" />
                     <Key frame="190" value="81.5611" />
                   </ActuatorCurve>
@@ -1105,6 +1116,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="55.9188" />
                     <Key frame="120" value="55.9" />
                     <Key frame="160" value="0" />
+                    <Key frame="165" value="0" />
                     <Key frame="180" value="74.0903" />
                     <Key frame="190" value="7.29261" />
                   </ActuatorCurve>
@@ -1130,6 +1142,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="0" />
                     <Key frame="140" value="0.0062921" />
                     <Key frame="160" value="-10" />
+                    <Key frame="165" value="0" />
                     <Key frame="180" value="4.82745" />
                     <Key frame="190" value="4.83644" />
                   </ActuatorCurve>
@@ -1146,6 +1159,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="42.6" />
                     <Key frame="140" value="22.5743" />
                     <Key frame="160" value="35.6" />
+                    <Key frame="165" value="19.5" />
                     <Key frame="180" value="6.53343" />
                     <Key frame="190" value="6.41851" />
                   </ActuatorCurve>
@@ -1159,6 +1173,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="22.8925" />
                     <Key frame="120" value="23.1" />
                     <Key frame="160" value="94" />
+                    <Key frame="165" value="58" />
                     <Key frame="180" value="1.84813" />
                     <Key frame="190" value="23.3816" />
                   </ActuatorCurve>
@@ -1170,6 +1185,7 @@ class MyClass(GeneratedClass):
                     <Key frame="100" value="9.1" />
                     <Key frame="110" value="19.7089" />
                     <Key frame="160" value="20" />
+                    <Key frame="165" value="0" />
                     <Key frame="180" value="68.8168" />
                     <Key frame="190" value="67.7621" />
                   </ActuatorCurve>
@@ -1196,6 +1212,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-7" />
                     <Key frame="140" value="-6.04085" />
                     <Key frame="160" value="-10" />
+                    <Key frame="165" value="-49.9" />
                     <Key frame="180" value="7.0173" />
                     <Key frame="190" value="7.20472" />
                   </ActuatorCurve>
@@ -1212,6 +1229,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="-12.7" />
                     <Key frame="140" value="-30.9317" />
                     <Key frame="160" value="-45" />
+                    <Key frame="165" value="-8" />
                     <Key frame="180" value="-7.06611" />
                     <Key frame="190" value="-6.67737" />
                   </ActuatorCurve>
@@ -1220,6 +1238,7 @@ class MyClass(GeneratedClass):
                     <Key frame="20" value="-9.46575" />
                     <Key frame="60" value="-0.220298" />
                     <Key frame="140" value="-0.220298" />
+                    <Key frame="165" value="0" />
                     <Key frame="180" value="-9.46575" />
                     <Key frame="190" value="-9.92936" />
                   </ActuatorCurve>
@@ -1234,6 +1253,7 @@ class MyClass(GeneratedClass):
                     <Key frame="135" value="7" />
                     <Key frame="140" value="6.44058" />
                     <Key frame="160" value="20" />
+                    <Key frame="165" value="100" />
                     <Key frame="180" value="-5.017" />
                     <Key frame="190" value="-5.44688" />
                   </ActuatorCurve>
@@ -1247,6 +1267,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="-85.0827" />
                     <Key frame="120" value="-85.2" />
                     <Key frame="160" value="35" />
+                    <Key frame="165" value="-10" />
                     <Key frame="180" value="11.6041" />
                     <Key frame="190" value="81.5659" />
                   </ActuatorCurve>
@@ -1259,6 +1280,7 @@ class MyClass(GeneratedClass):
                     <Key frame="110" value="-55.6234" />
                     <Key frame="120" value="-55.9" />
                     <Key frame="160" value="-48" />
+                    <Key frame="165" value="-23" />
                     <Key frame="180" value="-68.3822" />
                     <Key frame="190" value="-10.9889" />
                   </ActuatorCurve>
@@ -1273,7 +1295,7 @@ class MyClass(GeneratedClass):
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="Compass Move To" id="15" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="348" y="27">
+            <Box name="Compass Move To" id="15" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="564" y="68">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -1423,7 +1445,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
-            <Box name="Compass Move To (1)" id="16" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="728" y="56">
+            <Box name="Compass Move To (1)" id="16" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="910" y="62">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -1572,6 +1594,19 @@ class MyClass(GeneratedClass):
                 </BehaviorLayer>
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
+            </Box>
+            <Box name="DialogToggler" id="17" localization="8" tooltip="toggleDialog on/off" x="350" y="50">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="on" type="1" type_size="1" nature="1" inner="0" tooltip="" id="2" />
+              <Input name="off" type="1" type_size="1" nature="1" inner="0" tooltip="" id="3" />
+              <Output name="dialogOn" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
+              <Output name="dialogOff" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
             </Box>
             <Link inputowner="1" indexofinput="3" outputowner="7" indexofoutput="3" />
             <Link inputowner="9" indexofinput="2" outputowner="0" indexofoutput="2" />
@@ -1592,6 +1627,8 @@ class MyClass(GeneratedClass):
             <Link inputowner="14" indexofinput="2" outputowner="15" indexofoutput="4" />
             <Link inputowner="16" indexofinput="2" outputowner="14" indexofoutput="4" />
             <Link inputowner="15" indexofinput="2" outputowner="5" indexofoutput="6" />
+            <Link inputowner="17" indexofinput="3" outputowner="5" indexofoutput="5" />
+            <Link inputowner="17" indexofinput="3" outputowner="5" indexofoutput="6" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>
