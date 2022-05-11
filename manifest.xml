@@ -23,7 +23,6 @@
    <names>
     <name lang="en_US">Behavior</name>
    </names>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
   <dialogContent topicName="Museo" typeVersion="1.0">
