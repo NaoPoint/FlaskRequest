@@ -15,7 +15,7 @@
       <BehaviorLayer name="behavior_layer1">
         <BehaviorKeyframe name="keyframe1" index="1">
           <Diagram scale="84.0896">
-            <Box name="Set Reco. Lang." id="3" localization="8" tooltip="Select the language you would like the robot to recognize. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) will use this language.&#x0A;&#x0A;V1.1.0" plugin="setlanguage_plugin" x="89" y="500">
+            <Box name="Set Reco. Lang." id="3" localization="8" tooltip="Select the language you would like the robot to recognize. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) will use this language.&#x0A;&#x0A;V1.1.0" plugin="setlanguage_plugin" x="90" y="542">
               <bitmap>media/images/box/interaction/reco_voice.png</bitmap>
               <script language="4">
                 <content>
@@ -81,7 +81,7 @@ class MyClass(GeneratedClass):
               <Output name="onReady" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when the data has been set." id="3" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="flaskRequest" id="1" localization="8" tooltip="Send request to Flask to update JavaScript map and display the requested point." x="664" y="227">
+            <Box name="Flask Request" id="1" localization="8" tooltip="Send request to Flask to update JavaScript map and display the requested point." x="665" y="269">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -160,7 +160,7 @@ class MyClass(GeneratedClass):
               <Parameter name="flaskRequest" inherits_from_parent="0" content_type="4" value="/flaskRequest.py" default_value="" tooltip="" id="9" />
               <Parameter name="maxPoint" inherits_from_parent="0" content_type="1" value="9" default_value="9" min="1" max="200" tooltip="" id="10" />
             </Box>
-            <Box name="Test Number" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="105" y="404">
+            <Box name="Test Number" id="7" localization="8" tooltip="Send the text you entered when the input is stimulated." plugin="textedit_plugin" x="106" y="446">
               <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
               <script language="4">
                 <content>
@@ -182,7 +182,7 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="1" type_size="1" nature="1" inner="0" tooltip="To send the text on the output." id="2" />
               <Output name="onStopped" type="3" type_size="1" nature="2" inner="0" tooltip="The text you entered." id="3" />
             </Box>
-            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="346" y="223">
+            <Box name="Dialog" id="5" localization="8" tooltip="An example of multilanguage dialog implementation" x="347" y="265">
               <dialogFile>../Museo/Museo.dlg</dialogFile>
               <bitmap>media/images/box/box-dialog.png</bitmap>
               <script language="4">
@@ -199,7 +199,7 @@ class MyClass(GeneratedClass):
               <Resource name="Speech" type="Lock" timeout="0" />
               <Resource name="Speech recognition" type="Lock" timeout="0" />
             </Box>
-            <Box name="Set Language" id="9" localization="8" tooltip="Select the language you would like the robot to speak and understand. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) or ALTextToSpeech (Say box&#x0A;for instance) will use this language." x="132" y="264">
+            <Box name="Set Language" id="9" localization="8" tooltip="Select the language you would like the robot to speak and understand. Any following call to&#x0A;ALSpeechRecognition (Speech Reco. box for instance) or ALTextToSpeech (Say box&#x0A;for instance) will use this language." x="133" y="306">
               <bitmap>media/images/box/interaction/say.png</bitmap>
               <script language="4">
                 <content>
@@ -273,7 +273,7 @@ class MyClass(GeneratedClass):
               </Parameter>
               <Resource name="Speech" type="Lock" timeout="0" />
             </Box>
-            <Box name="Speech Recognition" id="2" localization="8" tooltip="Enter description here" x="565" y="491">
+            <Box name="Speech Recognition" id="2" localization="8" tooltip="Enter description here" x="566" y="533">
               <bitmap>media/images/box/box-diagram.png</bitmap>
               <script language="4">
                 <content>
@@ -377,7 +377,7 @@ class MyClass(GeneratedClass):
                 </BehaviorLayer>
               </Timeline>
             </Box>
-            <Box name="Add Number" id="4" localization="8" tooltip="Add numbers already in use to mapPoint." plugin="numberedit_plugin" x="499" y="399">
+            <Box name="Add Number" id="4" localization="8" tooltip="Add numbers already in use to mapPoint." plugin="numberedit_plugin" x="500" y="441">
               <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
               <script language="4">
                 <content>
@@ -397,7 +397,7 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="1" type_size="1" nature="1" inner="0" tooltip="To send the number on the output." id="2" />
               <Output name="onStopped" type="2" type_size="1" nature="2" inner="0" tooltip="The number you entered." id="3" />
             </Box>
-            <Box name="Error Counter" id="6" localization="-1" tooltip="Stop program after five errors." x="872" y="251">
+            <Box name="Error Counter" id="6" localization="-1" tooltip="Stop program after five errors." x="873" y="293">
               <bitmap>media/images/box/loop.png</bitmap>
               <script language="4">
                 <content>
@@ -445,7 +445,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Step value" inherits_from_parent="0" content_type="1" value="1" default_value="1" min="1" max="500" tooltip="The counter value will be incremented or decremented with this value." id="7" />
               <Parameter name="Final value" inherits_from_parent="0" content_type="1" value="5" default_value="5" min="0" max="500" tooltip="It is the maximum (if increasing) or the minimum (if decreasing) value of the&#x0A;counter (thus for the last iteration).&#x0A;&#x0A;After this value, if the onStart input is called, the onReinitialized output will be&#x0A;stimulated and the counter will be reinitialized to its Initial value." id="8" />
             </Box>
-            <Box name="Log and Terminate" id="10" localization="8" tooltip="Prompt the message in the debug window. You can set a prefix and a priority&#x0A;for the message in the parameters." x="1123" y="25">
+            <Box name="Log and Terminate" id="10" localization="8" tooltip="Prompt the message in the debug window. You can set a prefix and a priority&#x0A;for the message in the parameters." x="1124" y="67">
               <bitmap>media/images/box/print.png</bitmap>
               <script language="4">
                 <content>
@@ -493,7 +493,7 @@ class MyClass(GeneratedClass):
                 <Choice value="Debug" />
               </Parameter>
             </Box>
-            <Box name="If major" id="11" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="873" y="474">
+            <Box name="If major" id="11" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="874" y="516">
               <bitmap>media/images/box/box-diagram.png</bitmap>
               <script language="4">
                 <content>
@@ -543,7 +543,7 @@ class MyClass(GeneratedClass):
               <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="0" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="5" />
               <Parameter name="Sleep Time" inherits_from_parent="0" content_type="1" value="2" default_value="15" min="0" max="30" tooltip="" id="6" />
             </Box>
-            <Box name="Andata" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1017" y="386">
+            <Box name="Depart" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1018" y="428">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -702,7 +702,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
-            <Box name="Point At" id="13" localization="-1" tooltip="This box makes the robot point to a desired position." x="1109" y="235">
+            <Box name="Point At" id="13" localization="-1" tooltip="This box makes the robot point to a desired position." x="1110" y="277">
               <bitmap>media/images/box/movement/move_arm.png</bitmap>
               <script language="4">
                 <content>
@@ -769,7 +769,7 @@ class MyClass(GeneratedClass):
                 <Choice value="Robot" />
               </Parameter>
             </Box>
-            <Box name="Ritorno" id="8" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1278" y="162">
+            <Box name="Return" id="8" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1279" y="204">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -928,7 +928,7 @@ class MyClass(GeneratedClass):
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
-            <Box name="Button" id="14" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="744" y="65">
+            <Box name="Button" id="14" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="747" y="159">
               <bitmap>media/images/box/movement/move.png</bitmap>
               <script language="4">
                 <content>
@@ -1274,7 +1274,7 @@ class MyClass(GeneratedClass):
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="Compass Move To" id="15" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="564" y="68">
+            <Box name="Depart" id="15" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="593" y="21">
               <bitmap>media/images/box/movement/walk_forward.png</bitmap>
               <script language="4">
                 <content>
@@ -1282,13 +1282,10 @@ class MyClass(GeneratedClass):
                 </content>
               </script>
               <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+              <Input name="movement" type="2" type_size="3" nature="2" inner="0" tooltip="" id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="" id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
               <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="5" />
-              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="-0.2" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot X axis." id="6" />
-              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot Y axis." id="7" />
-              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="3.14159" default_value="0" min="-3.14159" max="3.14159" tooltip="Angle to travel around the robot Z axis." id="8" />
               <Timeline enable="0">
                 <BehaviorLayer name="behavior_layer1">
                   <BehaviorKeyframe name="keyframe1" index="1">
@@ -1312,9 +1309,14 @@ class MyClass(GeneratedClass):
         if self.compass:
             self.compass.moveTo(0.0, 0.0, 0.0)
 
+    def onInput_movement(self, data):
+        self.xMovement = data[0]
+        self.yMovement = data[1]
+        self.theta = data[2]
+
     def onInput_onStart(self):
         if self.compass:
-            self.compass.moveTo(self.getParameter("Distance X (m)"), self.getParameter("Distance Y (m)"), self.getParameter("Theta (rad)"))
+            self.compass.moveTo(self.xMovement, self.yMovement, self.theta)
         # The move is finished so output
         self.onStopped() #~ activate output of the box
 
@@ -1324,7 +1326,7 @@ class MyClass(GeneratedClass):
                           </content>
                         </script>
                         <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStart" type="2" type_size="3" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
                         <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
                         <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
                         <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
@@ -1413,168 +1415,18 @@ class MyClass(GeneratedClass):
                           </BehaviorLayer>
                         </Timeline>
                       </Box>
-                      <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
                       <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
                       <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
-                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
                       <Link inputowner="2" indexofinput="3" outputowner="3" indexofoutput="6" />
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
+                      <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
                     </Diagram>
                   </BehaviorKeyframe>
                 </BehaviorLayer>
               </Timeline>
               <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
-            <Box name="Compass Move To (1)" id="16" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="910" y="62">
-              <bitmap>media/images/box/movement/walk_forward.png</bitmap>
-              <script language="4">
-                <content>
-                  <![CDATA[]]>
-                </content>
-              </script>
-              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="5" />
-              <Parameter name="Distance X (m)" inherits_from_parent="0" content_type="2" value="-0.2" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot X axis." id="6" />
-              <Parameter name="Distance Y (m)" inherits_from_parent="0" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="Distance to travel along the robot Y axis." id="7" />
-              <Parameter name="Theta (rad)" inherits_from_parent="0" content_type="2" value="3.14159" default_value="0" min="-3.14159" max="3.14159" tooltip="Angle to travel around the robot Z axis." id="8" />
-              <Timeline enable="0">
-                <BehaviorLayer name="behavior_layer1">
-                  <BehaviorKeyframe name="keyframe1" index="1">
-                    <Diagram>
-                      <Box name="Move To" id="2" localization="8" tooltip="Make the robot move to a configured point relative to its current location." x="532" y="110">
-                        <bitmap>media/images/box/movement/walk_forward.png</bitmap>
-                        <script language="4">
-                          <content>
-                            <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        try :
-            self.compass = self.session().service("ALVisualCompass")
-        except Exception as e:
-            self.compass = None
-            self.logger.error(e)
-
-    def onUnload(self):
-        if self.compass:
-            self.compass.moveTo(0.0, 0.0, 0.0)
-
-    def onInput_onStart(self):
-        if self.compass:
-            self.compass.moveTo(self.getParameter("Distance X (m)"), self.getParameter("Distance Y (m)"), self.getParameter("Theta (rad)"))
-        # The move is finished so output
-        self.onStopped() #~ activate output of the box
-
-    def onInput_onStop(self):
-        self.onUnload()
-        self.failure()]]>
-                          </content>
-                        </script>
-                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
-                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
-                        <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
-                        <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="6" />
-                        <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="7" />
-                        <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14159" max="3.14159" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="8" />
-                        <Resource name="Legs" type="Lock" timeout="0" />
-                      </Box>
-                      <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="200" y="216">
-                        <bitmap>media/images/box/sensors/fall_manager.png</bitmap>
-                        <script language="4">
-                          <content>
-                            <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.bIsRunning = False
-
-    def onUnload(self):
-        self.bIsRunning = False
-
-    def onInput_onStart(self):
-        self.bIsRunning = True
-
-    def onInput_onStop(self):
-        if( self.bIsRunning ):
-            self.onUnload()
-            self.onStopped()]]>
-                          </content>
-                        </script>
-                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-                        <Input name="memory_robotHasFallen" type="0" type_size="1" nature="4" stm_value_name="robotHasFallen" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
-                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
-                        <Output name="robotHasFallen" type="1" type_size="1" nature="2" inner="0" tooltip="This output is stimulated when the robot has fallen." id="6" />
-                        <Timeline enable="0">
-                          <BehaviorLayer name="behavior_layer1">
-                            <BehaviorKeyframe name="keyframe1" index="1">
-                              <Diagram>
-                                <Box name="Wait" id="6" localization="8" tooltip="Wait a moment before sending a signal on the output. &#x0A;Can be stopped anytime. &#x0A;Stimulating the input again before output is activated restarts the waiting period.&#x0A;" x="206" y="93">
-                                  <bitmap>media/images/box/wait.png</bitmap>
-                                  <script language="4">
-                                    <content>
-                                      <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self, False)
-
-    def onLoad(self):
-        self.waiting = None
-
-    def onUnload(self):
-        self.cancelWaiting()
-
-    def triggerOutput(self):
-        self.timerOutput()
-
-    def cancelWaiting(self):
-        if self.waiting:
-            self.waiting.cancel()
-        self.waiting = None
-
-    def onInput_onStart(self):
-        self.cancelWaiting()
-        import qi
-        self.waiting = qi.async(self.triggerOutput, delay=int(self.getParameter("Timeout (s)") * 1000 * 1000))
-
-    def onInput_onStop(self):
-        if self.getParameter("Trigger timerOutput if cancelled") and self.waiting and self.waiting.isRunning():
-            self.timerOutput()
-        self.onUnload()]]>
-                                    </content>
-                                  </script>
-                                  <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-                                  <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Start the Wait box with the configured timeout value." id="2" />
-                                  <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Stop the wait and stimulate the output." id="3" />
-                                  <Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is elapsed, or if the box is stopped." id="4" />
-                                  <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="0.5" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
-                                  <Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="If the box is currently waiting and cancelled, output will be stimulated." id="6" />
-                                </Box>
-                                <Link inputowner="6" indexofinput="2" outputowner="0" indexofoutput="4" />
-                                <Link inputowner="0" indexofinput="6" outputowner="6" indexofoutput="4" />
-                              </Diagram>
-                            </BehaviorKeyframe>
-                          </BehaviorLayer>
-                        </Timeline>
-                      </Box>
-                      <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
-                      <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
-                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
-                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
-                      <Link inputowner="2" indexofinput="3" outputowner="3" indexofoutput="6" />
-                    </Diagram>
-                  </BehaviorKeyframe>
-                </BehaviorLayer>
-              </Timeline>
-              <Resource name="Legs" type="Lock" timeout="0" />
-            </Box>
-            <Box name="DialogToggler" id="17" localization="8" tooltip="toggleDialog on/off" x="350" y="50">
+            <Box name="Dialog Toggler" id="17" localization="8" tooltip="toggleDialog on/off" x="369" y="145">
               <bitmap>media/images/box/box-python-script.png</bitmap>
               <script language="4">
                 <content>
@@ -1586,6 +1438,220 @@ class MyClass(GeneratedClass):
               <Input name="off" type="1" type_size="1" nature="1" inner="0" tooltip="" id="3" />
               <Output name="dialogOn" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
               <Output name="dialogOff" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
+            </Box>
+            <Box name="Trigonometry 1" id="18" localization="8" tooltip="Calculate robot distances." x="558" y="175">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import math
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onInput_onStart(self):
+        self.xAxis = self.getParameter("X Axis")
+        self.yAxis = self.getParameter("Y Axis")
+
+        angle = math.atan(self.xAxis / self.yAxis) - math.radians(45)    # positive with left movement
+        hypotenuse = math.sqrt(self.xAxis ** 2 + self.yAxis ** 2)    # Pythagorean theorem
+
+        xMovement = - hypotenuse * math.cos(angle)
+        yMovement = hypotenuse * math.sin(angle)
+
+        radians = math.radians(180) + angle
+
+        self.movement([xMovement, yMovement, radians])]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Output name="movement" type="2" type_size="3" nature="2" inner="0" tooltip="" id="3" />
+              <Parameter name="X Axis" inherits_from_parent="0" content_type="2" value="0.26" default_value="0.5" min="0" max="100" tooltip="" id="4" />
+              <Parameter name="Y Axis" inherits_from_parent="0" content_type="2" value="0.29" default_value="0.5" min="0" max="100" tooltip="" id="5" />
+            </Box>
+            <Box name="Trigonometry 2" id="16" localization="8" tooltip="Calculate robot distances." x="826" y="22">
+              <bitmap>media/images/box/box-python-script.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[import math
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onInput_onStart(self):
+        self.xAxis = self.getParameter("X Axis")
+        self.yAxis = self.getParameter("Y Axis")
+
+        angle = math.atan(self.xAxis / self.yAxis) - math.radians(45)    # positive with left movement
+        hypotenuse = math.sqrt(self.xAxis ** 2 + self.yAxis ** 2)    # Pythagorean theorem
+
+        xMovement = - hypotenuse * math.cos(angle)
+        yMovement = hypotenuse * math.sin(angle)
+
+        radians = math.radians(180) + angle
+
+        self.movement([xMovement, yMovement, radians])]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+              <Output name="movement" type="2" type_size="3" nature="2" inner="0" tooltip="" id="3" />
+              <Parameter name="X Axis" inherits_from_parent="0" content_type="2" value="0.26" default_value="0.5" min="0" max="100" tooltip="" id="4" />
+              <Parameter name="Y Axis" inherits_from_parent="0" content_type="2" value="0.29" default_value="0.5" min="0" max="100" tooltip="" id="5" />
+            </Box>
+            <Box name="Return" id="20" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="913" y="164">
+              <bitmap>media/images/box/movement/walk_forward.png</bitmap>
+              <script language="4">
+                <content>
+                  <![CDATA[]]>
+                </content>
+              </script>
+              <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+              <Input name="movement" type="2" type_size="3" nature="2" inner="0" tooltip="" id="2" />
+              <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="" id="3" />
+              <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="5" />
+              <Timeline enable="0">
+                <BehaviorLayer name="behavior_layer1">
+                  <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                      <Box name="Move To" id="2" localization="8" tooltip="Make the robot move to a configured point relative to its current location." x="532" y="110">
+                        <bitmap>media/images/box/movement/walk_forward.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        try :
+            self.compass = self.session().service("ALVisualCompass")
+        except Exception as e:
+            self.compass = None
+            self.logger.error(e)
+
+    def onUnload(self):
+        if self.compass:
+            self.compass.moveTo(0.0, 0.0, 0.0)
+
+    def onInput_movement(self, data):
+        self.xMovement = data[0]
+        self.yMovement = data[1]
+        self.theta = data[2]
+
+    def onInput_onStart(self):
+        if self.compass:
+            self.compass.moveTo(self.xMovement, self.yMovement, self.theta)
+        # The move is finished so output
+        self.onStopped() #~ activate output of the box
+
+    def onInput_onStop(self):
+        self.onUnload()
+        self.failure()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when Diagram is loaded." id="1" />
+                        <Input name="onStart" type="2" type_size="3" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
+                        <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" />
+                        <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="6" />
+                        <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="7" />
+                        <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14159" max="3.14159" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="8" />
+                        <Resource name="Legs" type="Lock" timeout="0" />
+                      </Box>
+                      <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="200" y="216">
+                        <bitmap>media/images/box/sensors/fall_manager.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.bIsRunning = False
+
+    def onUnload(self):
+        self.bIsRunning = False
+
+    def onInput_onStart(self):
+        self.bIsRunning = True
+
+    def onInput_onStop(self):
+        if( self.bIsRunning ):
+            self.onUnload()
+            self.onStopped()]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Input name="memory_robotHasFallen" type="0" type_size="1" nature="4" stm_value_name="robotHasFallen" inner="1" tooltip="Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period." id="4" />
+                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
+                        <Output name="robotHasFallen" type="1" type_size="1" nature="2" inner="0" tooltip="This output is stimulated when the robot has fallen." id="6" />
+                        <Timeline enable="0">
+                          <BehaviorLayer name="behavior_layer1">
+                            <BehaviorKeyframe name="keyframe1" index="1">
+                              <Diagram>
+                                <Box name="Wait" id="6" localization="8" tooltip="Wait a moment before sending a signal on the output. &#x0A;Can be stopped anytime. &#x0A;Stimulating the input again before output is activated restarts the waiting period.&#x0A;" x="206" y="93">
+                                  <bitmap>media/images/box/wait.png</bitmap>
+                                  <script language="4">
+                                    <content>
+                                      <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self, False)
+
+    def onLoad(self):
+        self.waiting = None
+
+    def onUnload(self):
+        self.cancelWaiting()
+
+    def triggerOutput(self):
+        self.timerOutput()
+
+    def cancelWaiting(self):
+        if self.waiting:
+            self.waiting.cancel()
+        self.waiting = None
+
+    def onInput_onStart(self):
+        self.cancelWaiting()
+        import qi
+        self.waiting = qi.async(self.triggerOutput, delay=int(self.getParameter("Timeout (s)") * 1000 * 1000))
+
+    def onInput_onStop(self):
+        if self.getParameter("Trigger timerOutput if cancelled") and self.waiting and self.waiting.isRunning():
+            self.timerOutput()
+        self.onUnload()]]>
+                                    </content>
+                                  </script>
+                                  <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                                  <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Start the Wait box with the configured timeout value." id="2" />
+                                  <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Stop the wait and stimulate the output." id="3" />
+                                  <Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is elapsed, or if the box is stopped." id="4" />
+                                  <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="0.5" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
+                                  <Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="1" default_value="1" tooltip="If the box is currently waiting and cancelled, output will be stimulated." id="6" />
+                                </Box>
+                                <Link inputowner="6" indexofinput="2" outputowner="0" indexofoutput="4" />
+                                <Link inputowner="0" indexofinput="6" outputowner="6" indexofoutput="4" />
+                              </Diagram>
+                            </BehaviorKeyframe>
+                          </BehaviorLayer>
+                        </Timeline>
+                      </Box>
+                      <Link inputowner="0" indexofinput="4" outputowner="2" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="5" outputowner="2" indexofoutput="5" />
+                      <Link inputowner="2" indexofinput="3" outputowner="3" indexofoutput="6" />
+                      <Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="2" />
+                      <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
+                    </Diagram>
+                  </BehaviorKeyframe>
+                </BehaviorLayer>
+              </Timeline>
+              <Resource name="Legs" type="Lock" timeout="0" />
             </Box>
             <Link inputowner="1" indexofinput="3" outputowner="7" indexofoutput="3" />
             <Link inputowner="9" indexofinput="2" outputowner="0" indexofoutput="2" />
@@ -1604,10 +1670,12 @@ class MyClass(GeneratedClass):
             <Link inputowner="8" indexofinput="3" outputowner="13" indexofoutput="5" />
             <Link inputowner="11" indexofinput="2" outputowner="1" indexofoutput="7" />
             <Link inputowner="14" indexofinput="2" outputowner="15" indexofoutput="4" />
-            <Link inputowner="16" indexofinput="2" outputowner="14" indexofoutput="4" />
-            <Link inputowner="15" indexofinput="2" outputowner="5" indexofoutput="6" />
             <Link inputowner="17" indexofinput="3" outputowner="5" indexofoutput="5" />
             <Link inputowner="17" indexofinput="3" outputowner="5" indexofoutput="6" />
+            <Link inputowner="15" indexofinput="2" outputowner="18" indexofoutput="3" />
+            <Link inputowner="18" indexofinput="2" outputowner="5" indexofoutput="6" />
+            <Link inputowner="16" indexofinput="2" outputowner="14" indexofoutput="4" />
+            <Link inputowner="20" indexofinput="2" outputowner="16" indexofoutput="3" />
           </Diagram>
         </BehaviorKeyframe>
       </BehaviorLayer>

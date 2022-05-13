@@ -26,16 +26,16 @@
    <permissions/>
   </behaviorContent>
   <dialogContent topicName="Museo" typeVersion="1.0">
-   <topic language="en_US" path="Museo/Museo_enu.top"/>
-   <topic language="it_IT" path="Museo/Museo_iti.top"/>
+   <topic path="Museo/Museo_enu.top" language="en_US"/>
+   <topic path="Museo/Museo_iti.top" language="it_IT"/>
   </dialogContent>
   <dialogContent topicName="Opere" typeVersion="1.0">
-   <topic language="en_US" path="Opere/Opere_enu.top"/>
-   <topic language="it_IT" path="Opere/Opere_iti.top"/>
+   <topic path="Opere/Opere_enu.top" language="en_US"/>
+   <topic path="Opere/Opere_iti.top" language="it_IT"/>
   </dialogContent>
  </contents>
  <requirements>
-  <naoqiRequirement minVersion="2.8" maxVersion="2.8"/>
+  <naoqiRequirement maxVersion="2.8" minVersion="2.8"/>
   <robotRequirement model="NAO"/>
  </requirements>
 </package>
