@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package version="0.0.1" uuid="naopoint" installOnlyAtStartup="false">
+<package uuid="naopoint" installOnlyAtStartup="false" version="0.0.1">
  <names>
   <name lang="en_US">Flask Request</name>
   <name lang="it_IT">Richiesta Flask</name>
@@ -25,17 +25,17 @@
    </names>
    <permissions/>
   </behaviorContent>
-  <dialogContent topicName="Museo" typeVersion="1.0">
+  <dialogContent typeVersion="1.0" topicName="Museo">
    <topic path="Museo/Museo_enu.top" language="en_US"/>
    <topic path="Museo/Museo_iti.top" language="it_IT"/>
   </dialogContent>
-  <dialogContent topicName="Opere" typeVersion="1.0">
+  <dialogContent typeVersion="1.0" topicName="Opere">
    <topic path="Opere/Opere_enu.top" language="en_US"/>
    <topic path="Opere/Opere_iti.top" language="it_IT"/>
   </dialogContent>
  </contents>
  <requirements>
-  <naoqiRequirement maxVersion="2.8" minVersion="2.8"/>
+  <naoqiRequirement minVersion="2.8" maxVersion="2.8"/>
   <robotRequirement model="NAO"/>
  </requirements>
 </package>
