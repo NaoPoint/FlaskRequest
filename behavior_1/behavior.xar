@@ -1061,6 +1061,8 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="2" type_size="2" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+              <Parameter name="Angle1 (degrees)" inherits_from_parent="0" content_type="2" value="45" default_value="45" min="0" max="180" tooltip="" id="5" />
+              <Parameter name="Angle2 (degrees)" inherits_from_parent="0" content_type="2" value="90" default_value="90" min="0" max="180" tooltip="" id="6" />
               <Timeline enable="0">
                 <BehaviorLayer name="behavior_layer1">
                   <BehaviorKeyframe name="keyframe1" index="1">
@@ -1077,6 +1079,8 @@ class MyClass(GeneratedClass):
                         <Input name="coordinates" type="2" type_size="3" nature="2" inner="0" tooltip="" id="3" />
                         <Output name="coordinatesOut" type="2" type_size="3" nature="1" inner="0" tooltip="" id="4" />
                         <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="5" />
+                        <Parameter name="Angle1 (degrees)" inherits_from_parent="1" content_type="2" value="45" default_value="45" min="0" max="180" tooltip="" id="6" />
+                        <Parameter name="Angle2 (degrees)" inherits_from_parent="1" content_type="2" value="90" default_value="90" min="0" max="180" tooltip="" id="7" />
                         <Timeline enable="0">
                           <BehaviorLayer name="behavior_layer1">
                             <BehaviorKeyframe name="keyframe1" index="1">
@@ -1108,12 +1112,14 @@ class MyClass(GeneratedClass):
         self.coordinatesOut(p)
 
     def movement(self):
+        import math
+
         if self.compass:
-            self.compass.moveTo(0.0, 0.0, -self.axis * 0.7854)
+            self.compass.moveTo(0.0, 0.0, -self.axis * math.radians(self.getParameter("Angle1 (degrees)")))
             time.sleep(0.5)
             self.compass.moveTo(self.x, 0.0, 0.0)
             time.sleep(0.5)
-            self.compass.moveTo(0.0, 0.0, self.axis * 1.5708)
+            self.compass.moveTo(0.0, 0.0, self.axis * math.radians(self.getParameter("Angle2 (degrees)")))
 
     def onInput_onStop(self):
         self.onUnload()
@@ -1125,9 +1131,8 @@ class MyClass(GeneratedClass):
                                   <Input name="coordinates" type="2" type_size="3" nature="1" inner="0" tooltip="" id="3" />
                                   <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
                                   <Output name="coordinatesOut" type="2" type_size="3" nature="2" inner="0" tooltip="" id="5" />
-                                  <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="6" />
-                                  <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="7" />
-                                  <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="8" />
+                                  <Parameter name="Angle1 (degrees)" inherits_from_parent="1" content_type="2" value="45" default_value="45" min="0" max="180" tooltip="" id="6" />
+                                  <Parameter name="Angle2 (degrees)" inherits_from_parent="1" content_type="2" value="90" default_value="90" min="0" max="180" tooltip="" id="7" />
                                   <Resource name="Legs" type="Lock" timeout="0" />
                                 </Box>
                                 <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="252" y="241">
@@ -1294,6 +1299,8 @@ class MyClass(GeneratedClass):
                         <Input name="coordinates" type="2" type_size="3" nature="2" inner="0" tooltip="" id="3" />
                         <Output name="coordinatesOut" type="2" type_size="3" nature="1" inner="0" tooltip="" id="4" />
                         <Output name="failure" type="1" type_size="1" nature="1" inner="0" tooltip="Triggered when the move fails (e.g. the robot falls)." id="5" />
+                        <Parameter name="Angle1 (degrees)" inherits_from_parent="1" content_type="2" value="45" default_value="45" min="0" max="180" tooltip="" id="6" />
+                        <Parameter name="Angle2 (degrees)" inherits_from_parent="1" content_type="2" value="90" default_value="90" min="0" max="180" tooltip="" id="7" />
                         <Timeline enable="0">
                           <BehaviorLayer name="behavior_layer1">
                             <BehaviorKeyframe name="keyframe1" index="1">
@@ -1326,11 +1333,11 @@ class MyClass(GeneratedClass):
 
     def movement(self):
         if self.compass:
-            self.compass.moveTo(0.0, 0.0, self.axis * 1.5708)
+            self.compass.moveTo(0.0, 0.0, self.axis * math.radians(self.getParameter("Angle2 (degrees)")))
             time.sleep(0.5)
             self.compass.moveTo(self.x, 0.0, 0.0)
             time.sleep(0.5)
-            self.compass.moveTo(0.0, 0.0, -self.axis * 2.356)
+            self.compass.moveTo(0.0, 0.0, -self.axis * math.radians(self.getParameter("Angle1 (degrees)") + self.getParameter("Angle2 (degrees)")))
 
     def onInput_onStop(self):
         self.onUnload()
@@ -1342,9 +1349,8 @@ class MyClass(GeneratedClass):
                                   <Input name="coordinates" type="2" type_size="3" nature="1" inner="0" tooltip="" id="3" />
                                   <Output name="failure" type="1" type_size="1" nature="2" inner="0" tooltip="" id="4" />
                                   <Output name="coordinatesOut" type="2" type_size="3" nature="2" inner="0" tooltip="" id="5" />
-                                  <Parameter name="Distance X (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for forward/backward motion. Positive value&#x0A;means forward, negative value means backward." id="6" />
-                                  <Parameter name="Distance Y (m)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-10" max="10" tooltip="The distance in meters for lateral motion. Positive value means left, negative&#x0A;value means right." id="7" />
-                                  <Parameter name="Theta (rad)" inherits_from_parent="1" content_type="2" value="0" default_value="0" min="-3.14" max="3.14" tooltip="The orientation in radians for final rotation. Positive value means anticlockwise,&#x0A;negative value means clockwise." id="8" />
+                                  <Parameter name="Angle1 (degrees)" inherits_from_parent="1" content_type="2" value="45" default_value="45" min="0" max="180" tooltip="" id="6" />
+                                  <Parameter name="Angle2 (degrees)" inherits_from_parent="1" content_type="2" value="90" default_value="90" min="0" max="180" tooltip="" id="7" />
                                   <Resource name="Legs" type="Lock" timeout="0" />
                                 </Box>
                                 <Box name="Fall Detector" id="3" localization="8" tooltip='Detect if the the robot has fallen and has activated the fall manager process. &#x0A;&#x0A;Note : The output &quot;robotHasFallen&quot; is stimulated 0.5s after the fall is detected to give the robot time to fall.' x="252" y="241">
@@ -1511,8 +1517,6 @@ class MyClass(GeneratedClass):
             <Link inputowner="5" indexofinput="2" outputowner="9" indexofoutput="3" />
             <Link inputowner="5" indexofinput="2" outputowner="15" indexofoutput="4" />
             <Link inputowner="15" indexofinput="2" outputowner="5" indexofoutput="6" />
-            <Link inputowner="5" indexofinput="3" outputowner="5" indexofoutput="6" />
-            <Link inputowner="5" indexofinput="3" outputowner="5" indexofoutput="5" />
             <Link inputowner="14" indexofinput="2" outputowner="1" indexofoutput="7" />
             <Link inputowner="5" indexofinput="2" outputowner="14" indexofoutput="4" />
             <Link inputowner="6" indexofinput="2" outputowner="15" indexofoutput="5" />

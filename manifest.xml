@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="naopoint" installOnlyAtStartup="false" version="0.0.1">
+<package version="0.0.1" uuid="naopoint" installOnlyAtStartup="false">
  <names>
   <name lang="en_US">Flask Request</name>
   <name lang="it_IT">Richiesta Flask</name>
@@ -35,7 +35,7 @@
   </dialogContent>
  </contents>
  <requirements>
-  <naoqiRequirement minVersion="2.8" maxVersion="2.8"/>
+  <naoqiRequirement maxVersion="2.8" minVersion="2.8"/>
   <robotRequirement model="NAO"/>
  </requirements>
 </package>
