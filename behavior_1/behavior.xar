@@ -896,8 +896,8 @@ class MyClass(GeneratedClass):
 class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self, False)
-        self.positionErrorThresholdPos = 0.01
-        self.positionErrorThresholdAng = 0.03
+        self.positionErrorThresholdPos = 0.1
+        self.positionErrorThresholdAng = 0.05
 
     def onLoad(self):
         self.motion = self.session().service("ALMotion")
@@ -954,8 +954,8 @@ class MyClass(GeneratedClass):
 class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self, False)
-        self.positionErrorThresholdPos = 0.01
-        self.positionErrorThresholdAng = 0.03
+        self.positionErrorThresholdPos = 0.1
+        self.positionErrorThresholdAng = 0.05
 
     def onLoad(self):
         self.motion = self.session().service("ALMotion")
@@ -1043,8 +1043,8 @@ class MyClass(GeneratedClass):
                       <Link inputowner="20" indexofinput="2" outputowner="1" indexofoutput="3" />
                       <Link inputowner="1" indexofinput="2" outputowner="19" indexofoutput="5" />
                       <Link inputowner="0" indexofinput="4" outputowner="20" indexofoutput="5" />
-                      <Link inputowner="0" indexofinput="5" outputowner="19" indexofoutput="5" />
                       <Link inputowner="0" indexofinput="5" outputowner="20" indexofoutput="5" />
+                      <Link inputowner="0" indexofinput="5" outputowner="19" indexofoutput="5" />
                     </Diagram>
                   </BehaviorKeyframe>
                 </BehaviorLayer>
