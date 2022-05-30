@@ -1061,13 +1061,13 @@ class MyClass(GeneratedClass):
               <Input name="onStart" type="2" type_size="2" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
               <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
               <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-              <Parameter name="Angle1 (degrees)" inherits_from_parent="0" content_type="2" value="30" default_value="45" min="0" max="180" tooltip="" id="5" />
-              <Parameter name="Angle2 (degrees)" inherits_from_parent="0" content_type="2" value="80" default_value="90" min="0" max="180" tooltip="" id="6" />
+              <Parameter name="Angle1 (degrees)" inherits_from_parent="0" content_type="2" value="35" default_value="45" min="0" max="180" tooltip="" id="5" />
+              <Parameter name="Angle2 (degrees)" inherits_from_parent="0" content_type="2" value="68" default_value="90" min="0" max="180" tooltip="" id="6" />
               <Timeline enable="0">
                 <BehaviorLayer name="behavior_layer1">
                   <BehaviorKeyframe name="keyframe1" index="1">
                     <Diagram>
-                      <Box name="Depart" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="541" y="131">
+                      <Box name="Depart" id="12" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="375" y="131">
                         <bitmap>media/images/box/movement/walk_forward.png</bitmap>
                         <script language="4">
                           <content>
@@ -1317,7 +1317,7 @@ class MyClass(GeneratedClass):
                         </Timeline>
                         <Resource name="Legs" type="Lock" timeout="0" />
                       </Box>
-                      <Box name="Point At" id="13" localization="-1" tooltip="This box makes the robot point to a desired position." x="831" y="126">
+                      <Box name="Point At" id="13" localization="-1" tooltip="This box makes the robot point to a desired position." x="570" y="129">
                         <bitmap>media/images/box/movement/move_arm.png</bitmap>
                         <script language="4">
                           <content>
@@ -1335,7 +1335,15 @@ class MyClass(GeneratedClass):
 
         self.effector = self.getParameter("Effector")
 
-        self.frame = self.getParameter("Frame") #FRAME ROBOT
+        self.frame = self.getFrame(self.getParameter("Frame")) #FRAME ROBOT
+
+    def getFrame(self, frame):
+        if frame == "Torso":
+            return 0
+        if frame == "World":
+            return 1
+        if frame == "Robot":
+            return 2
 
     def onLoad(self):
         self.tracker = self.session().service("ALTracker")
@@ -1353,8 +1361,6 @@ class MyClass(GeneratedClass):
         self.x = self.pointer
         self.y = 0.0
         self.z = 0.0
-
-        self.frame = 2
 
         self.tracker.pointAt(self.effector, [self.x, self.y, self.z], self.frame, self.maxSpeed)
         time.sleep(0.5)
@@ -1379,7 +1385,7 @@ class MyClass(GeneratedClass):
                           <Choice value="Robot" />
                         </Parameter>
                       </Box>
-                      <Box name="Return" id="8" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="1064" y="103">
+                      <Box name="Return" id="8" localization="8" tooltip="Make the robot move to a configured point relative to its current location using camera to correct deviation.&#x0A;&#x0A;V1.1.0" x="735" y="85">
                         <bitmap>media/images/box/movement/walk_forward.png</bitmap>
                         <script language="4">
                           <content>
@@ -1623,7 +1629,7 @@ class MyClass(GeneratedClass):
                         </Timeline>
                         <Resource name="Legs" type="Lock" timeout="0" />
                       </Box>
-                      <Box name="If major" id="11" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="260" y="118">
+                      <Box name="If major" id="11" localization="8" tooltip="Test a condition and stimulate the then or else outputs depending on the boolean&#x0A;value of the condition.&#x0A;The condition can be set in parameters." x="127" y="118">
                         <bitmap>media/images/box/box-diagram.png</bitmap>
                         <script language="4">
                           <content>
@@ -1673,11 +1679,36 @@ class MyClass(GeneratedClass):
                         <Parameter name="Value to compare" inherits_from_parent="0" content_type="3" value="0" default_value="0" custom_choice="0" tooltip="This is the value which is compared to the input value." id="5" />
                         <Parameter name="Sleep Time" inherits_from_parent="0" content_type="1" value="2" default_value="15" min="0" max="30" tooltip="" id="6" />
                       </Box>
+                      <Box name="Head Movement" id="1" localization="8" tooltip="This box is empty (contains a single motion layer with no motor position&#x0A;defined in it) and should be used to create any animation you would like." x="910" y="65">
+                        <bitmap>media/images/box/movement/move.png</bitmap>
+                        <script language="4">
+                          <content>
+                            <![CDATA[]]>
+                          </content>
+                        </script>
+                        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
+                        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
+                        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
+                        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                        <Timeline enable="1" fps="5" start_frame="1" end_frame="10" size="10">
+                          <BehaviorLayer name="behavior_layer1">
+                            <BehaviorKeyframe name="keyframe1" index="1">
+                              <Diagram />
+                            </BehaviorKeyframe>
+                          </BehaviorLayer>
+                          <ActuatorList model="Nao">
+                            <ActuatorCurve name="" actuator="HeadYaw" mute="0" unit="0">
+                              <Key frame="5" value="0" />
+                            </ActuatorCurve>
+                          </ActuatorList>
+                        </Timeline>
+                      </Box>
                       <Link inputowner="8" indexofinput="3" outputowner="13" indexofoutput="4" />
                       <Link inputowner="12" indexofinput="3" outputowner="11" indexofoutput="3" />
                       <Link inputowner="13" indexofinput="3" outputowner="12" indexofoutput="4" />
                       <Link inputowner="11" indexofinput="2" outputowner="0" indexofoutput="2" />
-                      <Link inputowner="0" indexofinput="4" outputowner="8" indexofoutput="4" />
+                      <Link inputowner="1" indexofinput="2" outputowner="8" indexofoutput="4" />
+                      <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
                     </Diagram>
                   </BehaviorKeyframe>
                 </BehaviorLayer>

@@ -35,7 +35,7 @@
   </dialogContent>
  </contents>
  <requirements>
-  <naoqiRequirement minVersion="2.8" maxVersion="2.8"/>
+  <naoqiRequirement maxVersion="2.8" minVersion="2.8"/>
   <robotRequirement model="NAO"/>
  </requirements>
 </package>
